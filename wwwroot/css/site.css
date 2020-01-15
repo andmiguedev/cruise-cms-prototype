@@ -1,71 +1,238 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿
+@import url("https://fonts.googleapis.com/css?family=Barlow:400,700|Open+Sans:300,400,600&display=swap");
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/************* GLOBAL STYLES *************/
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+	font-family: "Open Sans", sans-serif;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+h1, h2, h3, h4, h5, h6 {
+	color: #0c3e72;
+	font-family: "Open Sans", sans-serif;
 }
+
+h2 {
+	font-size: 44px;
+	line-height: 28px;
+	color: #0c3e72;
+	font-weight: 600;
+	line-height: 1.222;
+}
+
+h3 {
+	font-size: 24px;
+	line-height: 25px;
+}
+
+h5 {
+	font-size: 18px;
+	line-height: 22px;
+}
+
+p {
+	color: #a2a2a2;
+	font-family: "Open Sans", sans-serif;
+	line-height: 28px;
+	font-size: 16px;
+	margin-bottom: 0px;
+	font-weight: 400;
+}
+
+a {
+	text-decoration: none;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
+a:hover {
+	color: #ff7e5f;
+	text-decoration: none;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
+a:focus, .button:focus, button:focus, .btn:focus {
+	text-decoration: none;
+	outline: none;
+	box-shadow: none;
+	-webkit-transition: 1s;
+	transition: 1s;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+input:hover, 
+input:focus {
+	outline: none !important;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/**************** LAYOUTS *****************/
+@media (max-width: 575px) {
+	.container-fluid {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 3640px) {
+	.container {
+		max-width: 1170px;
+	}
+}
+
+/*************** TOP BANNER ****************/
+.sub_menu {
+	background-color: #eaefff;
+	padding: 14px 0px;
+}
+
+.sub_menu .sub_menu_right_content a {
+  color: #0c3e72;
+  margin: 15px;
+}
+
+.sub_menu .sub_menu_right_content i {
+	color: #fe5c24;
+	margin-right: 13px;
+}
+
+.sub_menu .sub_menu_right_content span {
+	color: #fe5c24;
+	margin-right: 20px;
+}
+
+@media (max-width: 575px) {
+	.sub_menu .sub_menu_right_content {
+		text-align: center;
+	}
+	.sub_menu .sub_menu_right_content a {
+		margin: 3px;
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+	.sub_menu .sub_menu_right_content {
+		text-align: center;
+	}
+}
+
+.sub_menu .sub_menu_social_icon {
+	float: right;
+	text-align: right;
+}
+
+.sub_menu .sub_menu_social_icon span {
+	margin-left: 15px;
+	color: #0c3e72;
+}
+
+.sub_menu .sub_menu_social_icon span i {
+  color: #fe5c24;
+  margin-right: 8px;
+}
+
+.sub_menu .sub_menu_social_icon a {
+	color: #0c3e72;
+	margin-right: 20px;
+}
+
+.sub_menu .sub_menu_social_icon a:hover {
+  color: #fe5c24;
+}
+
+@media (max-width: 575px) {
+	.sub_menu .sub_menu_social_icon {
+		text-align: center;
+		float: none;
+		margin-top: 15px;
+	}
+
+	.sub_menu .sub_menu_social_icon a {
+		margin-right: 10px;
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+	.sub_menu .sub_menu_social_icon {
+		text-align: center;
+		float: none;
+		margin-top: 15px;
+	}
+}
+
+/************* MAIN NAVIGATION *************/
+.main_menu .navbar {
+	padding: 0px;
+}
+
+.main_menu .navbar-brand {
+	padding-top: 0rem;
+}
+
+@media (max-width: 575px) {
+	.main_menu .navbar-brand img {
+		max-width: 150px;
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+	.main_menu .navbar-brand img {
+		max-width: 200px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.main_menu .navbar-brand img {
+		max-width: 200px;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	.main_menu .navbar-brand img {
+		max-width: 200px;
+	}
+}
+
+/************* NAVIGATION BAR *************/
+.main_menu .main_menu-item {
+	text-align: left !important;
+}
+
+.main_menu .main_menu-item .nav-item {
+    padding: 10px 15px !important;
+}
+
+.main_menu .main_menu-item .nav-item a {
+    padding: 0 !important;
+ }
+
+.main_menu .main_menu-item ul li .nav-link {
+	color: #0c3e72;
+	font-size: 16px;
+	padding: 38px 22px;
+	font-family: "Open Sans", sans-serif;
+	text-transform: capitalize;
+}
+
+.main_menu .main_menu-item ul li .nav-link:hover {
+	color: #fe5c24;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	.main_menu .main_menu-item ul li .nav-link {
+		padding: 35px 16px;
+	}
+}
+
