@@ -9,6 +9,7 @@ using CruiseCMSDemo.Models;
 
 namespace CruiseCMSDemo.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
