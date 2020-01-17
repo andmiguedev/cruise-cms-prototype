@@ -21,6 +21,9 @@
   <ItemGroup>
     <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\plugins\vector\" />
+    <Folder Include="wwwroot\plugins\perfect\" />
+    <Folder Include="wwwroot\plugins\pace\" />
   </ItemGroup>
 
 </Project>
