@@ -27,10 +27,11 @@ namespace CruiseCMSDemo.Areas.Manager.Controllers
         }
 
         // GET /destination/caribbean/bahamas?id=053512
-        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _db.Destination.ToListAsync());
         }
+
+
     }
 }
