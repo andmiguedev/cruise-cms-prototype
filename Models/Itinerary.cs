@@ -18,18 +18,18 @@ namespace CruiseCMSDemo.Models
         public string Destination { get; set; }
 
         [Display(Name = "Cruise starts")]
-        public double StartTime { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public string StartTime { get; set; }
+        
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Date of Departure")]
         public DateTime DepartureDate { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Date of Arrival")]
         public DateTime ArrivalDate { get; set; }
         
         [Display(Name = "Cruise returns")]
-        public double ReturnTime { get; set; }
+        public string ReturnTime { get; set; }
 
         [Display(Name = "Number of days")]
         public int NumberOfDays { get; set; }

@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-CruiseCMSDemo-69BFE5FF-88C3-4DF1-9010-8715169AF023</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200120193426_exit.cs" />
+    <Compile Remove="Data\Migrations\20200120193426_exit.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200120193547_DisplayOnlyDateInItinerary.cs" />
+    <Compile Remove="Data\Migrations\20200120193547_DisplayOnlyDateInItinerary.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />

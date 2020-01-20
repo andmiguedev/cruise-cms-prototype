@@ -26,37 +26,37 @@
 										<thead>
 											<tr>
 												<th>
-													@* Category Name column *@
+													@* Sail From column *@
 													@Html.DisplayNameFor(i => i.Origin)
 												</th>
 												<th>
-													@* Category Name column *@
+													@* Sail To column *@
 													@Html.DisplayNameFor(i => i.Destination)
 												</th>
 												<th>
-													@* Category Name column *@
+													@* Cruise starts column *@
 													@Html.DisplayNameFor(i => i.StartTime)
 												</th>
 												<th>
-													@* Category Name column *@
+													@* Date of departure column *@
 													@Html.DisplayNameFor(i => i.DepartureDate)
 												</th>
 												<th>
-													@* Category Name column *@
+													@* Date of arrival column *@
 													@Html.DisplayNameFor(i => i.ArrivalDate)
 												</th>
 												<th>
-													@* Category Name column *@
+													@* Cruise returns column *@
 													@Html.DisplayNameFor(i => i.ReturnTime)
 												</th>
 												<th>
-													@* Category Name column *@
+													@* Number of days column *@
 													@Html.DisplayNameFor(i => i.NumberOfDays)
 												</th>
 											</tr>
 										</thead>
 										<tbody>
-											@* Names stored in Category list *@
+											@* Itinerary information per Trip *@
 											@foreach (var item in Model)
 											{
 												<tr>
@@ -85,10 +85,11 @@
 											}
 										</tbody>
 									</table>
-								} @*else
-									{
-										<partial name="_EmptyTableError"/>
-									}*@
+								@* Client Error for non existing data *@
+								} else
+								{
+									<partial name="_EmptyTableError"/>
+								}
 							</div>
 						</div>
 					</div>
