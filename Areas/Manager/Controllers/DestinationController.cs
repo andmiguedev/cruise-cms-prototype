@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CruiseCMSDemo.Data;
+using CruiseCMSDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,15 +13,15 @@ namespace CruiseCMSDemo.Areas.Manager.Controllers
     [Area("Manager")]
     public class DestinationController : Controller
     {
-       /**
-        * Microsoft recommendation to use async await
-        * when returning a primitive or complex type.
-        * 
-        * For more information, browse docs, under
-        * Specific type
-        * 
-        * https://docs.microsoft.com/en-us/aspnet/core/web-api/action-return-types?view=aspnetcore-3.1 
-        */
+        /**
+         * Microsoft recommendation to use async await
+         * when returning a primitive or complex type.
+         * 
+         * For more information, browse docs, under
+         * Specific type
+         * 
+         * https://docs.microsoft.com/en-us/aspnet/core/web-api/action-return-types?view=aspnetcore-3.1 
+         */
         private readonly ApplicationDbContext _db;
         public DestinationController(ApplicationDbContext db)
         {
@@ -31,7 +33,6 @@ namespace CruiseCMSDemo.Areas.Manager.Controllers
         {
             return View(await _db.Destination.ToListAsync());
         }
-
 
     }
 }

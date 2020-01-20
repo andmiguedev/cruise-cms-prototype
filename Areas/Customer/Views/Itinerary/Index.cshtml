@@ -1,0 +1,92 @@
+﻿
+@model IEnumerable<Itinerary>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-sm-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-12">
+							<div class="table-responsive">
+
+								@* Check if there are any Itineraries *@
+								@if (Model.Count() > 0)
+								{
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>@* Category Name column *@
+													@Html.DisplayNameFor(i => i.Origin)
+												</th>
+												<th>@* Category Name column *@
+													@Html.DisplayNameFor(i => i.Destination)
+												</th>
+												<th>@* Category Name column *@
+													@Html.DisplayNameFor(i => i.StartTime)
+												</th>
+												<th>@* Category Name column *@
+													@Html.DisplayNameFor(i => i.DepartureDate)
+												</th>
+												<th>@* Category Name column *@
+													@Html.DisplayNameFor(i => i.ArrivalDate)
+												</th>
+												<th>@* Category Name column *@
+													@Html.DisplayNameFor(i => i.ReturnTime)
+												</th>
+												<th>@* Category Name column *@
+													@Html.DisplayNameFor(i => i.NumberOfDays)
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											@* Names stored in Category list *@
+											@foreach (var item in Model)
+											{
+												<tr>
+													<td>
+														@Html.DisplayFor(value => item.Origin)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Destination)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.StartTime)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.DepartureDate)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.ArrivalDate)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.ReturnTime)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.NumberOfDays)
+													</td>
+												</tr>
+											}
+										</tbody>
+									</table>
+								} @*else
+								{
+									<partial name="_EmptyTableError"/>
+								}*@
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>

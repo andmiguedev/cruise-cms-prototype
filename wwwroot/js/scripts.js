@@ -11,10 +11,6 @@ jQuery(function($) {
 
     var CMPLTADMIN_SETTINGS = window.CMPLTADMIN_SETTINGS || {};
 
-
-
-
-
     /*--------------------------------
          Window Based Layout
      --------------------------------*/

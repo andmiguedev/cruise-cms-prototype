@@ -13,6 +13,9 @@ namespace CruiseCMSDemo.Data
             : base(options)
         {
         }
+
+        public DbSet<Itinerary> Itinerary { get; set; }
+
         public DbSet<Destination> Destination { get; set; }
     }
 }
