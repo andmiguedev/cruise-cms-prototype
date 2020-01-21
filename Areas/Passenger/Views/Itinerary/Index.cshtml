@@ -53,6 +53,9 @@
 													@* Number of days column *@
 													@Html.DisplayNameFor(i => i.NumberOfDays)
 												</th>
+												<th>
+													<span>Admin Tasks</span>
+												</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -81,6 +84,7 @@
 													<td>
 														@Html.DisplayFor(value => item.NumberOfDays)
 													</td>
+													<partial name="_AdminTasksIcons" model="item.Id" />
 												</tr>
 											}
 										</tbody>
