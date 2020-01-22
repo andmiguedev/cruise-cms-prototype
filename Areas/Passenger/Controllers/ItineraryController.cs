@@ -63,14 +63,14 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
          */ 
         public async Task<IActionResult> Edit(int? ID)
         {
-            var itinerary = await _db.Itinerary.FindAsync(ID);
+            var itineraryInfo = await _db.Itinerary.FindAsync(ID);
 
-            if (ID == null && itinerary == null)
+            if (ID == null && itineraryInfo == null)
             {
                 return NotFound();
             }
 
-            return View(itinerary);
+            return View(itineraryInfo);
         }
 
         /**
@@ -100,14 +100,14 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
          */ 
         public async Task<IActionResult> Delete(int? ID)
         {
-            var itinerary = await _db.Itinerary.FindAsync(ID);
+            var catalogInfo = await _db.Itinerary.FindAsync(ID);
 
-            if (ID == null && itinerary == null)
+            if (ID == null && catalogInfo == null)
             {
                 return NotFound();
             }
 
-            return View(itinerary);
+            return View(catalogInfo);
         }
 
         /**
@@ -120,24 +120,17 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int ID)
         {
-            var itinerary = await _db.Itinerary.FindAsync(ID);
+            var singleItinerary = await _db.Itinerary.FindAsync(ID);
             
-            if (itinerary == null)
+            if (singleItinerary == null)
             {
                 return NotFound();
             }
 
-            _db.Itinerary.Remove(itinerary);
+            _db.Itinerary.Remove(singleItinerary);
             await _db.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
-
-
-
-
     }
 }

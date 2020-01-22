@@ -1,0 +1,112 @@
+﻿
+@model IEnumerable<Profile>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-sm-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-12">
+							<div class="table-responsive">
+
+								@* Check if there are any Profiles *@
+								@if (Model.Count() > 0)
+								{
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>
+													@* Passenger First name column *@
+													@Html.DisplayNameFor(p => p.FirstName)
+												</th>
+												<th>
+													@* Passenger Last name column *@
+													@Html.DisplayNameFor(p => p.LastName)
+												</th>
+												<th>
+													@* Passenger Country origin column *@
+													@Html.DisplayNameFor(p => p.Country)
+												</th>
+												<th>
+													@* Passenger Last place visited column *@
+													@Html.DisplayNameFor(p => p.Itinerary.Destination)
+												</th>
+												<th>
+													@* Passenger Street address column *@
+													@Html.DisplayNameFor(i => i.Address)
+												</th>
+												<th>
+													@* Passenger Cell number column *@
+													@Html.DisplayNameFor(i => i.Phone)
+												</th>
+												<th>
+													@* Passenger Email address column *@
+													@Html.DisplayNameFor(i => i.Email)
+												</th>
+												<th>
+													@* Check Passeger is from USA column *@
+													@Html.DisplayNameFor(p => p.isLocal)
+												</th>
+												<th>
+													<span>Admin Tasks</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											@* Online registered information per Profile *@
+											@foreach (var item in Model)
+											{
+												<tr>
+													<td>
+														@Html.DisplayFor(value => item.FirstName)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.LastName)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Country)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Itinerary.Destination)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Address)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Phone)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Email)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.isLocal)
+													</td>
+													<partial name="_AdminTasksIcons" model="item.Id" />
+												</tr>
+											}
+										</tbody>
+									</table>
+									@* Client Error for non existing data *@
+								}
+								else
+								{
+									<partial name="_EmptyTableError" />
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>

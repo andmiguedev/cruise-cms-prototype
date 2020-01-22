@@ -92,11 +92,11 @@
 				<!-- USER INFO - END -->
 
 				<ul class='wraplist'>
-					<li class='menusection'>Passenger</li>
+					<li class='menusection'>Customer</li>
 					<li class="open">
 						<a href="javascript:;">
 							<i class="fa fa-life-ring"></i>
-							<span class="title">Customer</span>
+							<span class="title">Passenger</span>
 							<span class="arrow open"></span>
 						</a>
 						<ul class="sub-menu" style='display:block;'>
@@ -106,7 +106,9 @@
 								</a>
 							</li>
 							<li>
-								<a class="active" href="form-elements-premade.html">Pre Made Forms</a>
+								<a asp-action="Index" asp-controller="Profile" asp-area="Passenger">
+									Profiles
+								</a>
 							</li>
 							<li>
 								<a class="" href="form-elements-icheck.html">Checkbox & Radio</a>
