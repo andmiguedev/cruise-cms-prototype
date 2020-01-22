@@ -94,6 +94,49 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
             return View(itinerary);
         }
 
+        /**
+         * Important itinerary information is displayed 
+         * as a reminder that this action cannot be undo 
+         */ 
+        public async Task<IActionResult> Delete(int? ID)
+        {
+            var itinerary = await _db.Itinerary.FindAsync(ID);
+
+            if (ID == null && itinerary == null)
+            {
+                return NotFound();
+            }
+
+            return View(itinerary);
+        }
+
+        /**
+         * Manager is able to remove an itinerary in rare
+         * circumstances. For right now disabled fields 
+         * are displayed. In the future a friendly modal
+         * will alert the User to take action or exit.
+         */ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int ID)
+        {
+            var itinerary = await _db.Itinerary.FindAsync(ID);
+            
+            if (itinerary == null)
+            {
+                return NotFound();
+            }
+
+            _db.Itinerary.Remove(itinerary);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
 
 
     }
