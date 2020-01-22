@@ -14,7 +14,12 @@ namespace CruiseCMSDemo.Data
         {
         }
 
+        /**
+         * Create migrations for Models that are 
+         * used in Dashboard pages and Landing page
+         */ 
         public DbSet<Itinerary> Itinerary { get; set; }
+        public DbSet<Profile> Profile { get; set; }
 
         public DbSet<Destination> Destination { get; set; }
     }
