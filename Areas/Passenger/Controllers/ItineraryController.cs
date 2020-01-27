@@ -86,6 +86,7 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
             if (ModelState.IsValid)
             {
                 _db.Update(itinerary);
+
                 await _db.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));

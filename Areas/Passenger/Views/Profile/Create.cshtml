@@ -1,0 +1,109 @@
+﻿
+@model CruiseCMSDemo.Models.ViewModels.PassengerViewModel
+@using CruiseCMSDemo.Extensions
+
+@{
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-10">
+
+							<form method="post" asp-action="Create">
+								<div class="background-white">
+									<partial name="_FormMessageError" model="Model.ErrorMessage" />
+
+									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+									
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label asp-for="Profile.FirstName" class="form-label"></label>
+											<input asp-for="Profile.FirstName" class="form-control" />
+											<span asp-validation-for="Profile.FirstName" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-6">
+											<label asp-for="Profile.LastName" class="form-label"></label>
+											<input asp-for="Profile.LastName" class="form-control" />
+											<span asp-validation-for="Profile.LastName" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-5">
+											<label asp-for="Profile.Country" class="form-label"></label>
+											<input asp-for="Profile.Country" class="form-control" />
+											<span asp-validation-for="Profile.Country" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-7">
+											<label asp-for="Profile.ItineraryId" class="form-label"></label>
+											<select id="recentDestination" asp-for="Profile.ItineraryId" 
+												asp-items="Model.DestinationList.DropdownList(Model.Profile.ItineraryId)" class="form-control">
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label asp-for="Profile.Address" class="form-label"></label>
+										<input asp-for="Profile.Address" class="form-control" />
+										<span asp-validation-for="Profile.Address" class="text-danger"></span>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-5">
+											<label asp-for="Profile.City" class="form-label"></label>
+											<input asp-for="Profile.City" class="form-control" />
+											<span asp-validation-for="Profile.City" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<label asp-for="Profile.State" class="form-label" ></label>
+											<input asp-for="Profile.State" class="form-control" />
+											<span asp-validation-for="Profile.State" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label asp-for="Profile.ZipCode" class="form-label"></label>
+											<input asp-for="Profile.ZipCode" class="form-control" />
+											<span asp-validation-for="Profile.ZipCode" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-7">
+											<label asp-for="Profile.Email" class="form-label"></label>
+											<input asp-for="Profile.Email" class="form-control" />
+											<span asp-validation-for="Profile.Email" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-5">
+											<label asp-for="Profile.Phone" class="form-label"></label>
+											<input asp-for="Profile.Phone" class="form-control" />
+											<span asp-validation-for="Profile.Phone" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-3">
+											<label asp-for="Profile.isLocal" class="col-form-label"></label>
+										</div>
+										<div class="col-3">
+											<input asp-for="Profile.isLocal" type="checkbox" class="form-control" />
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-5 offset-1 py-2">
+											<input type="submit" class="btn btn-success form-control" value="Add record" />
+										</div>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>
