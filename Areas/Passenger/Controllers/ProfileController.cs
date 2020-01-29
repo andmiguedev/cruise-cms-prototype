@@ -90,5 +90,50 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
             return View(addProfile);
         }
 
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            var singleProfile = await _db.Profile.SingleOrDefaultAsync(
+               p => p.Id == id);
+
+            if (id == null && singleProfile == null)
+                return NotFound();
+
+            PassengerViewModel passenger = new PassengerViewModel()
+            {
+                DestinationList = await _db.Itinerary.ToListAsync(),
+                Profile = singleProfile,
+            };
+
+            return View(passenger);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int Id, PassengerViewModel passenger)
+        {
+            if (ModelState.IsValid)
+            {
+                var singleProfile = await _db.Profile.FindAsync(Id);
+
+                singleProfile.Address = passenger.Profile.Address;
+                singleProfile.City = passenger.Profile.City;
+                singleProfile.State = passenger.Profile.State;
+                singleProfile.ZipCode = passenger.Profile.ZipCode;
+                singleProfile.Email = passenger.Profile.Email;
+                singleProfile.Phone = passenger.Profile.Phone;
+
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            PassengerViewModel updateProfile = new PassengerViewModel()
+            {
+                DestinationList = await _db.Itinerary.ToListAsync(),
+                Profile = passenger.Profile,
+            };
+
+            return View(updateProfile);
+        }
     }
 }

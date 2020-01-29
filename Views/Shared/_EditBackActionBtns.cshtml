@@ -1,6 +1,9 @@
-﻿<div class="col-5 offset-1 py-2">
+﻿
+@model int
+
+<div class="col-5 offset-1 py-2">
 	<input type="submit" class="btn btn-info form-control"
-		   asp-route="@Model.Id" value="Update record" />
+		   asp-route="@Model" value="Update record" />
 </div>
 <div class="col-5 offset-1 py-2">
 	<a asp-action="Index" class="btn btn-primary form-control">
