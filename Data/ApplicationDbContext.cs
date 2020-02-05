@@ -21,6 +21,6 @@ namespace CruiseCMSDemo.Data
         public DbSet<Itinerary> Itinerary { get; set; }
         public DbSet<Profile> Profile { get; set; }
 
-        public DbSet<Destination> Destination { get; set; }
+        public DbSet<Administrator> Administrator { get; set; }
     }
 }

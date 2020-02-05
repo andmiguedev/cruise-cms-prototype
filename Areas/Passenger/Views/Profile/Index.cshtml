@@ -66,33 +66,40 @@
 											@* Online registered information per Profile *@
 											@foreach (var item in Model)
 											{
-												<tr>
-													<td>
-														@Html.DisplayFor(value => item.FirstName)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.LastName)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.Country)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.Itinerary.Destination)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.Address)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.Phone)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.Email)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.isLocal)
-													</td>
-													<partial name="_AdminTasksIcons" model="item.Id" />
-												</tr>
+											<tr>
+												<td>
+													@Html.DisplayFor(value => item.FirstName)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.LastName)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Country)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Itinerary.Destination)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Address)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Phone)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Email)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.isLocal)
+												</td>
+												<td>
+													<div class="btn-group" role="group">
+														<a class="box_close btn-outline pl-2" asp-action="Edit" asp-route-Id="@Model">
+															<i class="fa fa-pencil"></i>
+														</a>
+													</div>
+												</td>
+
+											</tr>
 											}
 										</tbody>
 									</table>
