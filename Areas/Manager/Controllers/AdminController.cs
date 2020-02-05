@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using CruiseCMSDemo.Data;
+using CruiseCMSDemo.Models;
+using System.IO;
 
 namespace CruiseCMSDemo.Areas.Manager.Controllers
 {
@@ -13,9 +16,9 @@ namespace CruiseCMSDemo.Areas.Manager.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public AdminController(ApplicationDbContext db, IHostingEnvironment hostingEnvironment)
+        public AdminController(ApplicationDbContext db, IWebHostEnvironment hostingEnvironment)
         {
             _db = db;
             _hostingEnvironment = hostingEnvironment;
