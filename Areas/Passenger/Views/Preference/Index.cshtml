@@ -1,0 +1,115 @@
+﻿
+@model IEnumerable<Preference>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-sm-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-12">
+							<div class="table-responsive">
+
+								@* Check if there are any Preferences *@
+								@if (Model.Count() > 0)
+								{
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>
+													@* Preference Last name column *@
+													@Html.DisplayNameFor(p => p.Profile.FirstName)
+												</th>
+												<th>
+													@* Preference Destination column *@
+													@Html.DisplayNameFor(p => p.Itinerary.Destination)
+												</th>
+												<th>
+													@* Preference purchased Cabin column *@
+													@Html.DisplayNameFor(p => p.Cabin)
+												</th>
+												<th>
+													@* Preference Cruise Event column *@
+													@Html.DisplayNameFor(p => p.Events)
+												</th>
+												<th>
+													@* Preference Destination Tour column *@
+													@Html.DisplayNameFor(p => p.Tours)
+												</th>
+												<th>
+													@* Preference Island Excursion column *@
+													@Html.DisplayNameFor(p => p.Excursions)
+												</th>
+												<th>
+													@* Prefrence Cruise activity column *@
+													@Html.DisplayNameFor(p => p.Activities)
+												</th>
+												<th>
+													@* Preference Amount on Services column *@
+													@Html.DisplayNameFor(p => p.AmountSpent)
+												</th>
+												<th>
+													<span>Admin Tasks</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											@* Personal preference choices per Cruise sail *@
+											@foreach (var item in Model)
+											{
+												<tr>
+													<td>
+														@Html.DisplayFor(value => item.Profile.FirstName)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Itinerary.Destination)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Cabin)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Events)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Tours)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Excursions)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Activities)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.AmountSpent)
+													</td>
+													<td>
+														<partial name="_AdminTasksIcons" model="item.Id" />
+													</td>
+
+												</tr>
+											}
+										</tbody>
+									</table>
+									@* Client Error for non existing data *@
+								}
+								else
+								{
+									<partial name="_EmptyTableError" />
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>
