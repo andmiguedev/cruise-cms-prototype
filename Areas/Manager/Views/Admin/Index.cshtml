@@ -1,0 +1,93 @@
+﻿
+@model IEnumerable<Administrator>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-sm-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-12">
+							<div class="table-responsive">
+
+								@* Check if there are any Administrators *@
+								@if (Model.Count() > 0)
+								{
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>
+													@* Administrator Full name column *@
+													@Html.DisplayNameFor(a => a.FullName)
+												</th>
+												<th>
+													@* Administrator Email address column *@
+													@Html.DisplayNameFor(a => a.EmailAddress)
+												</th>
+												<th>
+													@* Administrator Username column *@
+													@Html.DisplayNameFor(a => a.Username)
+												</th>
+												<th>
+													@* Administrator password column *@
+													@Html.DisplayNameFor(a => a.Password)
+												</th>
+												<th>
+													@* Banner image description column *@
+													@Html.DisplayNameFor(a => a.Description)
+												</th>
+												<th>
+													<span>Admin Tasks</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											@* Online registered information per Admins *@
+											@foreach (var item in Model)
+											{
+												<tr>
+													<td>
+														@Html.DisplayFor(value => item.FullName)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.EmailAddress)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Username)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Password)
+													</td>
+													<td>
+														@Html.DisplayFor(value => item.Description)
+													</td>
+													<td>
+														<partial name="_AdminTasksIcons" model="item.Id" />
+													</td>
+												</tr>
+											}
+										</tbody>
+									</table>
+									@* Client Error for non existing data *@
+								}
+								else
+								{
+									<partial name="_EmptyTableError" />
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>
