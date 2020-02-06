@@ -1,0 +1,140 @@
+﻿
+@model CruiseCMSDemo.Models.ViewModels.PopulateEntitiesViewModel
+@using CruiseCMSDemo.Extensions
+
+@{
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-lg-8 col-md-9 col-10">
+
+							<form method="post" asp-action="Create">
+								<div class="background-white">
+									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.ProfileId" class="form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<select id="ProfileId" name="ProfileId" asp-for="@Model.Preference.ProfileId"
+														asp-items="@(new SelectList(string.Empty, "Id", "FirstName"))" class="form-control">
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.ItineraryId" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<select id="ItineraryId" asp-for="@Model.Preference.ItineraryId"
+														asp-items="Model.Itinerary.DropdownList(Model.Preference.ItineraryId)" class="form-control">
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.Cabin" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Preference.Cabin" class="form-control" />
+											</div>
+											<span asp-validation-for="Preference.Cabin" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.Events" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Preference.Events" class="form-control" />
+											</div>
+											<span asp-validation-for="Preference.Events" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.Tours" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Preference.Tours" class="form-control" />
+											</div>
+											<span asp-validation-for="Preference.Tours" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.Excursions" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Preference.Excursions" class="form-control" />
+											</div>
+											<span asp-validation-for="Preference.Excursions" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.Activities" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Preference.Activities" class="form-control" />
+											</div>
+											<span asp-validation-for="Preference.Activities" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.MostVisited" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<select asp-for="Preference.MostVisited" 
+													asp-items="Html.GetEnumSelectList<Preference.Decks>()" class="form-control">
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Preference.AmountSpent" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Preference.AmountSpent" class="form-control" />
+											</div>
+											<span asp-validation-for="Preference.AmountSpent" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-5 offset-1 py-2">
+											<input type="submit" class="btn btn-success form-control" value="Add record" />
+										</div>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>

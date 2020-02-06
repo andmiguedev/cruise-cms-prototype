@@ -10,6 +10,7 @@ namespace CruiseCMSDemo.Models.ViewModels
     {
         public IEnumerable<Itinerary> DestinationList { get; set; }
         public Profile Profile { get; set; }
+        public Preference Preference { get; set; }
         public string ErrorMessage { get; set; }
     }
 }

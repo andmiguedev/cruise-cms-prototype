@@ -37,8 +37,6 @@ namespace CruiseCMSDemo.Models
             MainDeck = 3
         }
 
-        [Range(100, int.MaxValue, ErrorMessage = "Passenger must use complementary voucher of ${100}" )]
-        
         [Display(Name = "Total Spent")]
         public double AmountSpent { get; set; }
     }
