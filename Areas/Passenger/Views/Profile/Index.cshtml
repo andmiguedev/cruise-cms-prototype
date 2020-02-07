@@ -91,14 +91,7 @@
 												<td>
 													@Html.DisplayFor(value => item.isLocal)
 												</td>
-												<td>
-													<div class="btn-group" role="group">
-														<a class="box_close btn-outline pl-2" asp-action="Edit" asp-route-Id="@Model">
-															<i class="fa fa-pencil"></i>
-														</a>
-													</div>
-												</td>
-
+												<partial name="_AdminTasksIcons" model="item.Id" />
 											</tr>
 											}
 										</tbody>

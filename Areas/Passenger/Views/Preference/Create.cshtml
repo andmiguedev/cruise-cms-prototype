@@ -1,5 +1,5 @@
 ﻿
-@model CruiseCMSDemo.Models.ViewModels.PopulateEntitiesViewModel
+@model CruiseCMSDemo.Models.ViewModels.PassengerViewModel
 @using CruiseCMSDemo.Extensions
 
 @{
@@ -28,8 +28,8 @@
 										</div>
 										<div class="col-8">
 											<div class="controls">
-												<select id="ProfileId" name="ProfileId" asp-for="@Model.Preference.ProfileId"
-														asp-items="@(new SelectList(string.Empty, "Id", "FirstName"))" class="form-control">
+												<select id="ProfileId" asp-for="Preference.ProfileId"
+														asp-items="Model.ProfileNames.DropdownName(Model.Preference.ProfileId)" class="form-control">
 												</select>
 											</div>
 										</div>
@@ -40,8 +40,8 @@
 										</div>
 										<div class="col-8">
 											<div class="controls">
-												<select id="ItineraryId" asp-for="@Model.Preference.ItineraryId"
-														asp-items="Model.Itinerary.DropdownList(Model.Preference.ItineraryId)" class="form-control">
+												<select id="ItineraryId" asp-for="Preference.ItineraryId"
+														asp-items="Model.DestinationList.DropdownList(Model.Preference.ItineraryId)" class="form-control">
 												</select>
 											</div>
 										</div>
@@ -106,7 +106,7 @@
 											<label asp-for="Preference.MostVisited" class="col-form-label"></label>
 										</div>
 										<div class="col-8">
-											<select asp-for="Preference.MostVisited" 
+											<select asp-for="Preference.MostVisited"
 													asp-items="Html.GetEnumSelectList<Preference.Decks>()" class="form-control">
 											</select>
 										</div>

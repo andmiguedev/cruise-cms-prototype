@@ -6,6 +6,8 @@ using CruiseCMSDemo.Models.ViewModels;
 using CruiseCMSDemo.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using CruiseCMSDemo.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CruiseCMSDemo.Areas.Passenger.Controllers
 {
@@ -14,22 +16,9 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
     {
         private readonly ApplicationDbContext _db;
 
-        /* ViewModel can be used without passing as an
-         * argument */
-        [BindProperty]
-        public PopulateEntitiesViewModel TravelInfo { get; set; }
-
-        /*Initialize ViewModel objects to prevent null exception */
         public PreferenceController(ApplicationDbContext db)
         {
             _db = db;
-            
-            TravelInfo = new PopulateEntitiesViewModel()
-            {
-                Itinerary = _db.Itinerary,
-                Preference = new Models.Preference()
-                //Profile = _db.Profile
-            };
         }
 
         /**
@@ -44,11 +33,23 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
             
             return View(preferences);
         }
-        
 
-        public IActionResult Create()
+        /**
+         * Create a new Profile by filling passenger choice
+         * when it comes to services during the Cruise sail
+         * Planning to display Profile object as a menu list.
+         * Currently unable to achieve that using JavaScript
+         */
+        public async Task<IActionResult> Create()
         {
-            return View(TravelInfo);
+            PassengerViewModel travelInfo = new PassengerViewModel()
+            {
+                ProfileNames = await _db.Profile.ToListAsync(),
+                DestinationList = await _db.Itinerary.ToListAsync(),
+                Preference = new Models.Preference()
+            };
+
+            return View(travelInfo);
         }
 
 
@@ -57,6 +58,7 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
 
 
 
-
+        
+        
     }
 }

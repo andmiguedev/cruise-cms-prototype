@@ -24,5 +24,18 @@ namespace CruiseCMSDemo.Extensions
                         .Equals(selectedValue.ToString())
                 };
         }
+
+        public static IEnumerable<SelectListItem> DropdownName<profile>(
+            this IEnumerable<profile> items, int selectedValue)
+        {
+            return from item in items
+                   select new SelectListItem
+                   {
+                       Text = item.GetPropertyValue("FirstName"),
+                       Value = item.GetPropertyValue("Id"),
+                       Selected = item.GetPropertyValue("Id")
+                           .Equals(selectedValue.ToString())
+                   };
+        }
     }
 }
