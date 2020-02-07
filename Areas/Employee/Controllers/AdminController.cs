@@ -12,7 +12,7 @@ using System.IO;
 
 namespace CruiseCMSDemo.Areas.Manager.Controllers
 {
-    [Area("Manager")]
+    [Area("Employee")]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _db;
