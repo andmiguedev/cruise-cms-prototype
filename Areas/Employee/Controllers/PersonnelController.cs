@@ -82,7 +82,6 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
             if (ModelState.IsValid)
             {
                 _db.Update(staff);
-
                 await _db.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));

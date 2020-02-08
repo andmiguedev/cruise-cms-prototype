@@ -42,16 +42,12 @@
 													@Html.DisplayNameFor(p => p.Itinerary.Destination)
 												</th>
 												<th>
-													@* Passenger Street address column *@
-													@Html.DisplayNameFor(i => i.Address)
+													@* Passenger Email address column *@
+													@Html.DisplayNameFor(p => p.Email)
 												</th>
 												<th>
 													@* Passenger Cell number column *@
-													@Html.DisplayNameFor(i => i.Phone)
-												</th>
-												<th>
-													@* Passenger Email address column *@
-													@Html.DisplayNameFor(i => i.Email)
+													@Html.DisplayNameFor(p => p.Phone)
 												</th>
 												<th>
 													@* Check Passeger is from USA column *@
@@ -80,18 +76,15 @@
 													@Html.DisplayFor(value => item.Itinerary.Destination)
 												</td>
 												<td>
-													@Html.DisplayFor(value => item.Address)
+													@Html.DisplayFor(value => item.Email)
 												</td>
 												<td>
 													@Html.DisplayFor(value => item.Phone)
 												</td>
 												<td>
-													@Html.DisplayFor(value => item.Email)
-												</td>
-												<td>
 													@Html.DisplayFor(value => item.isLocal)
 												</td>
-												<partial name="_AdminTasksIcons" model="item.Id" />
+												<partial name="_TaskUsersIcon" model="item.Id" />
 											</tr>
 											}
 										</tbody>
