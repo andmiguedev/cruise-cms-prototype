@@ -147,5 +147,28 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
 
             return View(updateProfile);
         }
+
+        /**
+         * Read only view of Passenger information.
+         * Bug: There is an issue with DropdownList
+         * on rendering the DestinationList select
+         */ 
+        public async Task<IActionResult> Details(int? id, PassengerViewModel updateProfile)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            updateProfile.Profile = await _db.Profile.Include(
+                p => p.Itinerary).SingleOrDefaultAsync(p => p.Id == id);
+            
+            if (updateProfile == null)
+            {
+                return NotFound();
+            }
+
+            return View(updateProfile);
+        }
     }
 }
