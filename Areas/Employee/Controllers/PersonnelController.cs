@@ -31,6 +31,7 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
          * Render a registration form with personal info
          * and Staff working responsabilties on the Ship
          */
+        [HttpGet]
         public IActionResult Create()
         {
             return View();

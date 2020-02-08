@@ -40,6 +40,7 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
          * Planning to display Profile object as a menu list.
          * Currently unable to achieve that using JavaScript
          */
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             PassengerViewModel travelInfo = new PassengerViewModel()

@@ -22,7 +22,7 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
         /**
          * Render a list of Cruise itineraries to be seen  
          * by any authorized User who register as Employee
-         */ 
+         */  
         public async Task<IActionResult> Index()
         {
             return View(await _db.Itinerary.ToListAsync());
@@ -33,6 +33,7 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
          * distributed in labels and blank input tags to
          * be fill by General Manager who has Admin rights
          */ 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -61,6 +62,7 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
          * All the Itinerary information is displayed inside
          * the input tags to be reviewed before proceeding
          */ 
+        [HttpGet]
         public async Task<IActionResult> Edit(int? ID)
         {
             var itineraryInfo = await _db.Itinerary.FindAsync(ID);
@@ -99,6 +101,7 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
          * Important itinerary information is displayed 
          * as a reminder that this action cannot be undo 
          */ 
+        [HttpGet]
         public async Task<IActionResult> Delete(int? ID)
         {
             var catalogInfo = await _db.Itinerary.FindAsync(ID);

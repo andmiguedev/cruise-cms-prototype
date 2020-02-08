@@ -39,6 +39,7 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
          * Render a row-form based form with the properties
          * of a Passenger, and a list of recent destinations
          */
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             PassengerViewModel passenger = new PassengerViewModel()
@@ -91,6 +92,11 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
         }
 
 
+        /**
+         * Display Passenger personal information
+         * Only available for non Personnel Users
+         */ 
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             var singleProfile = await _db.Profile.SingleOrDefaultAsync(
@@ -108,6 +114,11 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
             return View(passenger);
         }
 
+        /**
+         * Passenger is able to modify information in
+         * regards of his or her profile. Fields such
+         * as Name and Country cannot be changed.
+         */ 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int Id, PassengerViewModel passenger)
@@ -122,6 +133,7 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
                 singleProfile.ZipCode = passenger.Profile.ZipCode;
                 singleProfile.Email = passenger.Profile.Email;
                 singleProfile.Phone = passenger.Profile.Phone;
+                singleProfile.isLocal = passenger.Profile.isLocal;
 
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
