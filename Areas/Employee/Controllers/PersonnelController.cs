@@ -26,5 +26,33 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
         {
             return View(await _db.Personnel.ToListAsync());
         }
+
+        /**
+         * Render a registration form with personal info
+         * and Staff working responsabilties on the Ship
+         */
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        /**
+         * Create a new employee in the category of staff.
+         * This form includes two enum for multiple choices
+         */ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Personnel staff)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Personnel.Add(staff);
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(staff);
+        }
     }
 }
