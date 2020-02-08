@@ -121,16 +121,24 @@
 					<li class="open">
 						<a href="javascript:;">
 							<i class="fa fa-life-ring"></i>
-							<span class="title">Manager</span>
+							<span class="title">Employees</span>
 							<span class="arrow open"></span>
 						</a>
 						<ul class="sub-menu" style='display:block;'>
 							<li>
 								<a asp-action="Index" asp-controller="Admin" asp-area="Employee">
-									Administrator
+									Manager
 								</a>
 							</li>
-							
+
+						</ul>
+						<ul class="sub-menu" style='display:block;'>
+							<li>
+								<a asp-action="Index" asp-controller="Personnel"asp-area="Employee">
+									Staff
+								</a>
+							</li>
+
 						</ul>
 					</li>
 				</ul>

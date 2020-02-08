@@ -1,0 +1,104 @@
+﻿
+@model IEnumerable<Personnel>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-sm-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-12">
+							<div class="table-responsive">
+
+								@* Check if there are any Staff employees *@
+								@if (Model.Count() > 0)
+								{
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>
+													@Html.DisplayNameFor(p => p.Name)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.DOB)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.Fleet)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.StartDate)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.EndDate)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.Duties)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.Experience)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.Salary)
+												</th>
+												<th>
+													<span>Admin Tasks</span>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											@* Personnel information per Cruise *@
+											@foreach (var item in Model)
+											{
+											<tr>
+												<td>
+													@Html.DisplayFor(value => item.Name)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.DOB)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Fleet)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.StartDate)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.EndDate)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Duties)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Experience)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Salary)
+												</td>
+												<partial name="_AdminTasksIcons" model="item.Id" />
+											</tr>
+											}
+										</tbody>
+									</table>
+									@* Client Error for non existing data *@
+								}
+								else
+								{
+									<partial name="_EmptyTableError" />
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>
