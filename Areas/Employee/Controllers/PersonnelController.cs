@@ -60,11 +60,11 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
          * All the Staff employee info is displayed inside
          * the input tags to be reviewed before proceeding
          */
-        public async Task<IActionResult> Edit(int? ID)
+        public async Task<IActionResult> Edit(int? Id)
         {
-            var staffInfo = await _db.Personnel.FindAsync(ID);
+            var staffInfo = await _db.Personnel.FindAsync(Id);
 
-            if (ID == null && staffInfo == null)
+            if (Id == null && staffInfo == null)
             {
                 return NotFound();
             }
@@ -74,7 +74,8 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
 
         /**
          * Each staff employee is able to make changes 
-         * to his or her own information in the form
+         * to his or her own information in the form.
+         * All fields MUST be changed in order to Edit
          */ 
         [HttpPost]
         [ValidateAntiForgeryToken]

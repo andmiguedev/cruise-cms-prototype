@@ -13,10 +13,13 @@ namespace CruiseCMSDemo.Models
         public int Id { get; set; }
 
         [Display(Name = "First Name")]
+        [Required]
         public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Country { get; set; }
 
         [Display(Name = "Recent Place")]
@@ -26,6 +29,7 @@ namespace CruiseCMSDemo.Models
         public virtual Itinerary Itinerary { get; set; }
 
         [Display(Name = "Street Address")]
+        [Required]
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -34,9 +38,11 @@ namespace CruiseCMSDemo.Models
         public int ZipCode { get; set; }
 
         [Display(Name = "Contact Number")]
+        [Required]
         public string Phone { get; set; }
 
         [Display(Name = "Email Address")]
+        [Required]
         public string Email { get; set; }
 
         [Display(Name = "Are you a Resident?")]
