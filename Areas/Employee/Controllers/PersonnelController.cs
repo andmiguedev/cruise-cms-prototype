@@ -54,5 +54,41 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
 
             return View(staff);
         }
+
+        /**
+         * All the Staff employee info is displayed inside
+         * the input tags to be reviewed before proceeding
+         */
+        public async Task<IActionResult> Edit(int? ID)
+        {
+            var staffInfo = await _db.Personnel.FindAsync(ID);
+
+            if (ID == null && staffInfo == null)
+            {
+                return NotFound();
+            }
+
+            return View(staffInfo);
+        }
+
+        /**
+         * Each staff employee is able to make changes 
+         * to his or her own information in the form
+         */ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Personnel staff)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Update(staff);
+
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(staff);
+        }
     }
 }

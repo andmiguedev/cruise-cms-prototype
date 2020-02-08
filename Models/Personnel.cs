@@ -14,6 +14,7 @@ namespace CruiseCMSDemo.Models
         [Display(Name = "Full Name")]
         public string Name { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Day of Birth")]
         public DateTime DOB { get; set; }
 
@@ -27,9 +28,11 @@ namespace CruiseCMSDemo.Models
         [Display(Name = "Assigned Cruise")]
         public string Fleet { get; set; }
         
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
         
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
         

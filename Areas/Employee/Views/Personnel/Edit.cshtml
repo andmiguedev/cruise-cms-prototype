@@ -1,0 +1,97 @@
+﻿
+@model CruiseCMSDemo.Models.Personnel
+
+@{
+	ViewData["Title"] = "Edit";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-12">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-10">
+
+							<form method="post" asp-action="Edit">
+								<div class="background-white">
+									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+									<div class="form-row">
+										<div class="form-group col-md-5">
+											<label asp-for="Name" class="form-label"></label>
+											<input asp-for="Name" class="form-control" readonly />
+											<span asp-validation-for="Name" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label asp-for="DOB" class="form-label"></label>
+											<input asp-for="DOB" class="form-control" readonly />
+											<span asp-validation-for="Name" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label asp-for="Gender" class="form-label"></label>
+											<select asp-for="Gender"
+													asp-items="Html.GetEnumSelectList<Personnel.Sex>()" class="form-control" disabled>
+											</select>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-5">
+											<label asp-for="Fleet" class="form-label"></label>
+											<input asp-for="Fleet" class="form-control" />
+											<span asp-validation-for="Fleet" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label asp-for="StartDate" class="form-label"></label>
+											<input asp-for="StartDate" class="form-control" />
+											<span asp-validation-for="StartDate" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label asp-for="EndDate" class="form-label"></label>
+											<input asp-for="EndDate" class="form-control" />
+											<span asp-validation-for="EndDate" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-5">
+											<label asp-for="Industry" class="form-label"></label>
+											<select asp-for="Industry"
+													asp-items="Html.GetEnumSelectList<Personnel.JobType>()" class="form-control">
+											</select>
+										</div>
+										<div class="form-group col-md-6">
+											<label asp-for="Duties" class="form-label"></label>
+											<input asp-for="Duties" class="form-control" />
+											<span asp-validation-for="Duties" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label asp-for="Experience" class="form-label"></label>
+											<input asp-for="Experience" class="form-control" />
+											<span asp-validation-for="Experience" class="text-danger"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<label asp-for="Salary" class="form-label"></label>
+											<input asp-for="Salary" class="form-control" />
+											<span asp-validation-for="Salary" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<partial name="_EditBackActionBtns" model="Model.Id" />
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>
