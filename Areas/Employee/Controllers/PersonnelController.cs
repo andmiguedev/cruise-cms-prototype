@@ -91,5 +91,22 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
 
             return View(staff);
         }
+
+        /**
+         * Managers can see brief information of each
+         * Staff employee. They have at least 3 years
+         * of experience in the Company to be Staff.
+         */ 
+        public async Task<IActionResult> Details(int? id)
+        {
+             var singleEmployee = await _db.Personnel.FindAsync(id);
+
+            if (id == null && singleEmployee == null)
+            {
+                return NotFound();
+            }
+
+            return View(singleEmployee);
+        }
     }
 }

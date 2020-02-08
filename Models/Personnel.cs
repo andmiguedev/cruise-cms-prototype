@@ -12,10 +12,12 @@ namespace CruiseCMSDemo.Models
         public int Id { get; set; }
 
         [Display(Name = "Full Name")]
+        [Required]
         public string Name { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Day of Birth")]
+        [Required]
         public DateTime DOB { get; set; }
 
         public string Gender { get; set; }
@@ -30,10 +32,12 @@ namespace CruiseCMSDemo.Models
         
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Start Date")]
+        [Required]
         public DateTime StartDate { get; set; }
         
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "End Date")]
+        [Required]
         public DateTime EndDate { get; set; }
         
         public string Industry { get; set; }
@@ -45,12 +49,15 @@ namespace CruiseCMSDemo.Models
             Service = 4
         }
 
+        [Required]
         public string Duties { get; set; }
 
         [Display(Name = "Years of Experience")]
+        [Required]
         public int Experience { get; set; }
 
         [Display(Name = "Annual Salary")]
+        [Required]
         public double Salary { get; set; }
     }
 }
