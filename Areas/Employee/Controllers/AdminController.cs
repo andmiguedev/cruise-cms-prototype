@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using CruiseCMSDemo.Data;
 using CruiseCMSDemo.Models;
 using System.IO;
+using CruiseCMSDemo.Models.ViewModels;
 
 namespace CruiseCMSDemo.Areas.Manager.Controllers
 {
@@ -18,10 +19,19 @@ namespace CruiseCMSDemo.Areas.Manager.Controllers
         private readonly ApplicationDbContext _db;
         private readonly IWebHostEnvironment _hostingEnvironment;
 
+        [BindProperty]
+        public EmployeeViewModel webAdmin { get; set; }
+
         public AdminController(ApplicationDbContext db, IWebHostEnvironment hostingEnvironment)
         {
             _db = db;
             _hostingEnvironment = hostingEnvironment;
+
+            webAdmin = new EmployeeViewModel()
+            {
+                Personnel = _db.Personnel,
+                Admin = new Models.Administrator()
+            };
         }
 
         /**
@@ -31,10 +41,21 @@ namespace CruiseCMSDemo.Areas.Manager.Controllers
          */ 
         public async Task<IActionResult> Index()
         {
-            var webmaster = await _db.Administrator.Include
+            var displayAdmins = await _db.Administrator.Include
                 (a => a.Employee).ToListAsync();
 
-            return View(webmaster);
+            return View(displayAdmins);
+        }
+
+        /**
+         * Render the Administrator form information
+         * and the input fields that webmaster needs
+         * to change the content in the Home page.
+         */ 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View(webAdmin);
         }
     }
 }

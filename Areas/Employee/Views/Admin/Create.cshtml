@@ -1,0 +1,96 @@
+﻿
+@model CruiseCMSDemo.Models.ViewModels.EmployeeViewModel
+
+@{
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<section id="main-content">
+	<section class="wrapper main-wrapper row">
+		<partial name="_HeaderPageTitle" />
+
+		<div class="col-10">
+			<section class="box">
+				<partial name="_HeaderTableInfo" />
+
+				<div class="content-body">
+					<div class="row">
+						<div class="col-md-9">
+
+							<form method="post" enctype="multipart/form-data">
+								<div class="background-white">
+									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+									@*<div class="form-group row">
+											<div class="col-4">
+												<label asp-for="Admin.PersonnelId" class="form-label"></label>
+											</div>
+											<div class="col-8">
+												<div class="controls">
+													<input asp-for="Admin.PersonnelId" class="form-control" />
+												</div>
+												<span asp-validation-for="Admin.PersonnelId" class="text-danger"></span>
+											</div>
+										</div>*@
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Admin.Username" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Admin.Username" class="form-control" />
+											</div>
+											<span asp-validation-for="Admin.Username" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Admin.Password" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Admin.Password" class="form-control" />
+											</div>
+											<span asp-validation-for="Admin.Password" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Admin.EmailAddress" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input asp-for="Admin.EmailAddress" class="form-control" />
+											</div>
+											<span asp-validation-for="Admin.EmailAddress" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Admin.Background" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											<div class="controls">
+												<input type="file" name="files" class="form-control-file" />
+											</div>
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-4">
+											<label asp-for="Admin.Description" class="col-form-label"></label>
+										</div>
+										<div class="col-8">
+											@Html.TextAreaFor(a => a.Admin.Description, 8, 30, null)
+										</div>
+									</div>
+									<partial name="_BtnAddAction" />
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</section>
+</section>
