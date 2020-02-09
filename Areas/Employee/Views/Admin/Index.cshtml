@@ -27,7 +27,7 @@
 											<tr>
 												<th>
 													@* Administrator Full name column *@
-													@Html.DisplayNameFor(a => a.FullName)
+													@Html.DisplayNameFor(a => a.PersonnelId)
 												</th>
 												<th>
 													@* Administrator Email address column *@
@@ -56,7 +56,7 @@
 											{
 												<tr>
 													<td>
-														@Html.DisplayFor(value => item.FullName)
+														@Html.DisplayFor(value => item.Employee.Name)
 													</td>
 													<td>
 														@Html.DisplayFor(value => item.EmailAddress)

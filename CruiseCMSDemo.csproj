@@ -10,6 +10,10 @@
     <Compile Remove="Data\Migrations\20200120193426_exit.Designer.cs" />
     <Compile Remove="Data\Migrations\20200120193547_DisplayOnlyDateInItinerary.cs" />
     <Compile Remove="Data\Migrations\20200120193547_DisplayOnlyDateInItinerary.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200209153834_ConnectPersonnelWithAdminTable.cs" />
+    <Compile Remove="Data\Migrations\20200209153834_ConnectPersonnelWithAdminTable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200209154343_ConnectPersonnelWithAdminTable.cs" />
+    <Compile Remove="Data\Migrations\20200209154343_ConnectPersonnelWithAdminTable.Designer.cs" />
   </ItemGroup>
 
 

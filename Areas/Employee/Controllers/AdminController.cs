@@ -31,7 +31,8 @@ namespace CruiseCMSDemo.Areas.Manager.Controllers
          */ 
         public async Task<IActionResult> Index()
         {
-            var webmaster = await _db.Administrator.ToListAsync();
+            var webmaster = await _db.Administrator.Include
+                (a => a.Employee).ToListAsync();
 
             return View(webmaster);
         }
