@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace CruiseCMSDemo.Models
 {
-    public class Administrator
+    public class Admin
     {
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Name of Employee")]
-        public int PersonnelId { get; set; }
-        
-        [ForeignKey("PersonnelId")]
-        public virtual Personnel Employee { get; set; }
+        [Required]
+        [Display(Name = "Employee Name")]
+        public string FullName { get; set; }
 
         [Required]
         [Display(Name = "Email Address")]
@@ -27,7 +25,8 @@ namespace CruiseCMSDemo.Models
         public string Password { get; set; }
 
         [Display(Name = "Banner Image")]
-        public string Background { get; set; }
+        public string Image { get; set; }
+
         [Display(Name = "Banner Slogan")]
         public string Description { get; set; }
     }

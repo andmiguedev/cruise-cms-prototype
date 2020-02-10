@@ -22,6 +22,6 @@ namespace CruiseCMSDemo.Data
         public DbSet<Profile> Profile { get; set; }
         public DbSet<Preference> Preference { get; set; }
         public DbSet<Personnel> Personnel { get; set; }
-        public DbSet<Administrator> Administrator { get; set; }
+        public DbSet<Admin> Admin { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<Administrator>
+@model IEnumerable<Admin>
 
 @{
 	ViewData["Title"] = "Index";
@@ -27,11 +27,7 @@
 											<tr>
 												<th>
 													@* Administrator Full name column *@
-													@Html.DisplayNameFor(a => a.PersonnelId)
-												</th>
-												<th>
-													@* Administrator Email address column *@
-													@Html.DisplayNameFor(a => a.EmailAddress)
+													@Html.DisplayNameFor(a => a.FullName)
 												</th>
 												<th>
 													@* Administrator Username column *@
@@ -42,9 +38,10 @@
 													@Html.DisplayNameFor(a => a.Password)
 												</th>
 												<th>
-													@* Banner image description column *@
-													@Html.DisplayNameFor(a => a.Description)
+													@* Administrator Email address column *@
+													@Html.DisplayNameFor(a => a.EmailAddress)
 												</th>
+												<th></th>
 												<th>
 													<span>Admin Tasks</span>
 												</th>
@@ -56,22 +53,19 @@
 											{
 												<tr>
 													<td>
-														@Html.DisplayFor(value => item.Employee.Name)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.EmailAddress)
+														@Html.DisplayFor(value => item.FullName)
 													</td>
 													<td>
 														@Html.DisplayFor(value => item.Username)
 													</td>
 													<td>
+														@Html.DisplayFor(value => item.EmailAddress)
+													</td>
+													<td>
 														@Html.DisplayFor(value => item.Password)
 													</td>
 													<td>
-														@Html.DisplayFor(value => item.Description)
-													</td>
-													<td>
-														<partial name="_AdminTasksIcons" model="item.Id" />
+														<partial name="_TaskIconsAdmin" model="item.Id" />
 													</td>
 												</tr>
 											}
