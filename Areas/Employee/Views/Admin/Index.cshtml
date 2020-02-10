@@ -51,23 +51,23 @@
 											@* Online registered information per Admins *@
 											@foreach (var item in Model)
 											{
-												<tr>
-													<td>
-														@Html.DisplayFor(value => item.FullName)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.Username)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.EmailAddress)
-													</td>
-													<td>
-														@Html.DisplayFor(value => item.Password)
-													</td>
-													<td>
-														<partial name="_TaskIconsAdmin" model="item.Id" />
-													</td>
-												</tr>
+											<tr>
+												<td>
+													@Html.DisplayFor(value => item.FullName)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Username)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.Password)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.EmailAddress)
+												</td>
+												<td>
+													<partial name="_TaskIconsAdmin" model="item.Id" />
+												</td>
+											</tr>
 											}
 										</tbody>
 									</table>

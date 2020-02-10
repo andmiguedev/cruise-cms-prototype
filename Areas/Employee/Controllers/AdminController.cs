@@ -47,6 +47,10 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
             return View();
         }
 
+        /**
+         * Create a new WebAdmin that has the capability
+         * of changing content of the Website dynamically
+         */ 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Admin webAdmin)
@@ -107,7 +111,86 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            
+        }
+
+        /**
+         * Render Web Administrator information, and display 
+         * existing Background image and slogan description
+         */ 
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? ID)
+        {
+            var singleAdmin = await _db.Admin.SingleOrDefaultAsync(
+                a => a.Id == ID);
+
+            if (ID == null && singleAdmin == null)
+            {
+                return NotFound();
+            }
+
+            return View(singleAdmin);
+        }
+
+         /**
+         * Registered Web Administrator can now update 
+         * information on the Website Banner section
+         */ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Admin webAdmin, int ID)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            else
+            {
+                _db.Admin.Add(webAdmin);
+                await _db.SaveChangesAsync();
+
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+                var saveInfo = await _db.Admin.FirstAsync();
+
+                if (files.Count > 0)
+                {
+                    // Upload a new selected Background Image 
+                    var uploads = Path.Combine(webRootPath, "img");
+                    var newExtension = Path.GetExtension(files[0].FileName);
+
+                    // Remove older Path where the Image was stored
+                    var imagePath = Path.Combine(webRootPath, webAdmin.Image.TrimStart('\\'));
+
+                    // Check if Background image exists
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        // Remove the Image from Server
+                        System.IO.File.Delete(imagePath);
+                    }
+
+                    // Replace Background with new Image
+                    using (var fileStream = new FileStream(Path.Combine(uploads,
+                        webAdmin.Id + newExtension), FileMode.Create))
+                    {
+                        files[0].CopyTo(fileStream);
+                    }
+
+                    // Save path of new Background Image
+                    saveInfo.Image = @"\img\" + webAdmin.Id + newExtension;
+                }
+            }
+
+            // If Admin has changed other fields
+            var singleAdmin = await _db.Admin.FindAsync(ID);
+
+            // Update property fields in the Database
+            singleAdmin.Username = singleAdmin.Username;
+            singleAdmin.Password = singleAdmin.Password;
+            singleAdmin.EmailAddress = singleAdmin.EmailAddress;
+            singleAdmin.Description = singleAdmin.Description;
+
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
