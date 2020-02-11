@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace CruiseCMSDemo.Utility
 {
     public class StaticAssets
-    {
+    {   
         public const string DefaultBackground = "banner_bg.png";
     }
 }

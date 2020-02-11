@@ -1,238 +1,442 @@
-﻿
-@import url("https://fonts.googleapis.com/css?family=Barlow:400,700|Open+Sans:300,400,600&display=swap");
+﻿@import url("https://fonts.googleapis.com/css?family=Barlow:400,700|Open+Sans:300,400,600&display=swap");
 
 /************* GLOBAL STYLES *************/
 body {
-	font-family: "Open Sans", sans-serif;
-	padding: 0;
-	margin: 0;
-	font-size: 14px;
+   font-family: "Open Sans", sans-serif;
+   padding: 0;
+   margin: 0;
+   font-size: 14px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	color: #0c3e72;
-	font-family: "Open Sans", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   color: #0c3e72;
+   font-family: "Open Sans", sans-serif;
 }
 
 h2 {
-	font-size: 44px;
-	line-height: 28px;
-	color: #0c3e72;
-	font-weight: 600;
-	line-height: 1.222;
+   font-size: 44px;
+   line-height: 28px;
+   color: #0c3e72;
+   font-weight: 600;
+   line-height: 1.222;
 }
 
 h3 {
-	font-size: 24px;
-	line-height: 25px;
+   font-size: 24px;
+   line-height: 25px;
 }
 
 h5 {
-	font-size: 18px;
-	line-height: 22px;
+   font-size: 18px;
+   line-height: 22px;
 }
 
 p {
-	color: #a2a2a2;
-	font-family: "Open Sans", sans-serif;
-	line-height: 28px;
-	font-size: 16px;
-	margin-bottom: 0px;
-	font-weight: 400;
+   color: #a2a2a2;
+   font-family: "Open Sans", sans-serif;
+   line-height: 28px;
+   font-size: 16px;
+   margin-bottom: 0px;
+   font-weight: 400;
 }
 
 a {
-	text-decoration: none;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
+   text-decoration: none;
+   -webkit-transition: 0.5s;
+   transition: 0.5s;
 }
 
 a:hover {
-	color: #ff7e5f;
-	text-decoration: none;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
+   color: #ff7e5f;
+   text-decoration: none;
+   -webkit-transition: 0.5s;
+   transition: 0.5s;
 }
 
-a:focus, .button:focus, button:focus, .btn:focus {
-	text-decoration: none;
-	outline: none;
-	box-shadow: none;
-	-webkit-transition: 1s;
-	transition: 1s;
+a:focus,
+.button:focus,
+button:focus,
+.btn:focus {
+   text-decoration: none;
+   outline: none;
+   box-shadow: none;
+   -webkit-transition: 1s;
+   transition: 1s;
 }
 
 img {
-	max-width: 100%;
+   max-width: 100%;
 }
 
 
-input:hover, 
+input:hover,
 input:focus {
-	outline: none !important;
+   outline: none !important;
 }
 
 ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+   list-style: none;
+   margin: 0;
+   padding: 0;
 }
 
 /**************** LAYOUTS *****************/
 @media (max-width: 575px) {
-	.container-fluid {
-		padding-right: 15px;
-		padding-left: 15px;
-	}
+   .container-fluid {
+      padding-right: 15px;
+      padding-left: 15px;
+   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 3640px) {
-	.container {
-		max-width: 1170px;
-	}
+   .container {
+      max-width: 1170px;
+   }
 }
 
 /*************** TOP BANNER ****************/
 .sub_menu {
-	background-color: #eaefff;
-	padding: 14px 0px;
+   background-color: #eaefff;
+   padding: 14px 0px;
 }
 
 .sub_menu .sub_menu_right_content a {
-  color: #0c3e72;
-  margin: 15px;
+   color: #0c3e72;
+   margin: 15px;
 }
 
 .sub_menu .sub_menu_right_content i {
-	color: #fe5c24;
-	margin-right: 13px;
+   color: #fe5c24;
+   margin-right: 13px;
 }
 
 .sub_menu .sub_menu_right_content span {
-	color: #fe5c24;
-	margin-right: 20px;
+   color: #fe5c24;
+   margin-right: 20px;
 }
 
 @media (max-width: 575px) {
-	.sub_menu .sub_menu_right_content {
-		text-align: center;
-	}
-	.sub_menu .sub_menu_right_content a {
-		margin: 3px;
-	}
+   .sub_menu .sub_menu_right_content {
+      text-align: center;
+   }
+
+   .sub_menu .sub_menu_right_content a {
+      margin: 3px;
+   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-	.sub_menu .sub_menu_right_content {
-		text-align: center;
-	}
+   .sub_menu .sub_menu_right_content {
+      text-align: center;
+   }
 }
 
 .sub_menu .sub_menu_social_icon {
-	float: right;
-	text-align: right;
+   float: right;
+   text-align: right;
 }
 
 .sub_menu .sub_menu_social_icon span {
-	margin-left: 15px;
-	color: #0c3e72;
+   margin-left: 15px;
+   color: #0c3e72;
 }
 
 .sub_menu .sub_menu_social_icon span i {
-  color: #fe5c24;
-  margin-right: 8px;
+   color: #fe5c24;
+   margin-right: 8px;
 }
 
 .sub_menu .sub_menu_social_icon a {
-	color: #0c3e72;
-	margin-right: 20px;
+   color: #0c3e72;
+   margin-right: 20px;
 }
 
 .sub_menu .sub_menu_social_icon a:hover {
-  color: #fe5c24;
+   color: #fe5c24;
 }
 
 @media (max-width: 575px) {
-	.sub_menu .sub_menu_social_icon {
-		text-align: center;
-		float: none;
-		margin-top: 15px;
-	}
+   .sub_menu .sub_menu_social_icon {
+      text-align: center;
+      float: none;
+      margin-top: 15px;
+   }
 
-	.sub_menu .sub_menu_social_icon a {
-		margin-right: 10px;
-	}
+   .sub_menu .sub_menu_social_icon a {
+      margin-right: 10px;
+   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-	.sub_menu .sub_menu_social_icon {
-		text-align: center;
-		float: none;
-		margin-top: 15px;
-	}
+   .sub_menu .sub_menu_social_icon {
+      text-align: center;
+      float: none;
+      margin-top: 15px;
+   }
 }
 
 /************* MAIN NAVIGATION *************/
 .main_menu .navbar {
-	padding: 0px;
+   padding: 0px;
 }
 
 .main_menu .navbar-brand {
-	padding-top: 0rem;
+   padding-top: 0rem;
 }
 
 @media (max-width: 575px) {
-	.main_menu .navbar-brand img {
-		max-width: 150px;
-	}
+   .main_menu .navbar-brand img {
+      max-width: 150px;
+   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-	.main_menu .navbar-brand img {
-		max-width: 200px;
-	}
+   .main_menu .navbar-brand img {
+      max-width: 200px;
+   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.main_menu .navbar-brand img {
-		max-width: 200px;
-	}
+   .main_menu .navbar-brand img {
+      max-width: 200px;
+   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-	.main_menu .navbar-brand img {
-		max-width: 200px;
-	}
+   .main_menu .navbar-brand img {
+      max-width: 200px;
+   }
 }
 
 /************* NAVIGATION BAR *************/
 .main_menu .main_menu-item {
-	text-align: left !important;
+   text-align: left !important;
 }
 
 .main_menu .main_menu-item .nav-item {
-    padding: 10px 15px !important;
+   padding: 10px 15px !important;
 }
 
 .main_menu .main_menu-item .nav-item a {
-    padding: 0 !important;
- }
+   padding: 0 !important;
+}
 
 .main_menu .main_menu-item ul li .nav-link {
-	color: #0c3e72;
-	font-size: 16px;
-	padding: 38px 22px;
-	font-family: "Open Sans", sans-serif;
-	text-transform: capitalize;
+   color: #0c3e72;
+   font-size: 16px;
+   padding: 38px 22px;
+   font-family: "Open Sans", sans-serif;
+   text-transform: capitalize;
 }
 
 .main_menu .main_menu-item ul li .nav-link:hover {
-	color: #fe5c24;
+   color: #fe5c24;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-	.main_menu .main_menu-item ul li .nav-link {
-		padding: 35px 16px;
-	}
+   .main_menu .main_menu-item ul li .nav-link {
+      padding: 35px 16px;
+   }
 }
 
+
+.banner_part {
+   height: 600px;
+   position: relative;
+   overflow: hidden;
+   background-image: url(../img/banner_bg.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   z-index: 1;
+}
+
+@media (max-width: 575px) {
+
+   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part {
+      height: 650px;
+      background-color: #f0eed4;
+   }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part {
+      height: 650px;
+      background-color: #f0eed4;
+   }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part {
+      height: 700px;
+      background-color: #f0eed4;
+   }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part {
+      background-size: cover;
+      height: 650px;
+   }
+}
+
+/* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text {
+   display: table;
+   width: 100%;
+   height: 580px;
+}
+
+/* line 32, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text .banner_text_iner {
+   display: table-cell;
+   vertical-align: middle;
+}
+
+@media (max-width: 575px) {
+
+   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 650px;
+   }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 650px;
+   }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text {
+      text-align: center;
+      padding-top: 0px;
+      height: 700px;
+   }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text {
+      height: 650px;
+   }
+}
+
+/* line 55, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text p {
+   font-size: 24px;
+   color: #fff;
+   margin-bottom: 50px;
+}
+
+/* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text h1 {
+   font-size: 120px;
+   line-height: 1;
+   text-transform: capitalize;
+   color: #fff;
+   font-weight: 900;
+   margin-bottom: 22px;
+}
+
+@media (max-width: 575px) {
+
+   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+   }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+   }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+   }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+   }
+}
+
+/* line 86, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text h1 span {
+   color: #fe5c24;
+}
+
+/* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text h3 {
+   font-size: 48px;
+   font-weight: 300;
+   color: #fff;
+}
+
+@media (max-width: 575px) {
+
+   /* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text h3 {
+      font-size: 28px;
+   }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+   /* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+   .banner_part .banner_text h3 {
+      font-size: 28px;
+   }
+}
+
+/* line 106, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text .btn_1 {
+   margin-top: 60px;
+   background-color: #f1f1f1;
+   padding: 23px 79px;
+}
+
+/* line 110, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
+.banner_part .banner_text .btn_1:hover {
+   color: #fff;
+   background-color: #fe5c24;
+}
