@@ -55,62 +55,34 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Admin webAdmin)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View();
-            }
-            else
-            {
-                _db.Admin.Add(webAdmin);
-                await _db.SaveChangesAsync();
-
-                // Find the root Path of the Application
-                string webRootPath = _hostingEnvironment.WebRootPath;
-
                 // Store images that webAdmin has uploaded
-                var files = HttpContext.Request.Form.Files;
+                var pictures = HttpContext.Request.Form.Files;
 
-                // Store information that webAdmin has fill
-                var saveInfo = await _db.Admin.FirstAsync();
-
-                if (files.Count > 0)
+                if (pictures.Count > 0)
                 {
-                    // Admin has uploaded a background Image
-                    var uploads = Path.Combine(webRootPath, "img");
+                    byte[] bannerImage = null;
 
-                    // Append extension to the Image uploaded
-                    var extension = Path.GetExtension(files[0].FileName);
-
-
-                    using (var fileStream = new FileStream(Path.Combine(uploads, 
-                        webAdmin.Id + extension), FileMode.Create ))
+                    using (var fileStream = pictures[0].OpenReadStream())
                     {
-                        // Copy Background image to "img" folder 
-                        // and rename it
-                        files[0].CopyTo(fileStream);
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            fileStream.CopyTo(memoryStream);
+                            bannerImage = memoryStream.ToArray(); 
+                        }
                     }
 
-                    // Save background image with extension
-                    saveInfo.Image = @"\img\" + webAdmin.Id + extension;
-                }
-                else
-                {
-                    // Use default Background image
-                    // if no picture was selected
-                    var uploads = Path.Combine(webRootPath, @"img\" + StaticAssets.DefaultBackground);
-
-                    // Make a temporary Copy to the "img" folder
-                    System.IO.File.Copy(uploads, webRootPath + @"\img\" + webAdmin.Id + ".png");
-
-                    // Update Admin object with background Image
-                    webAdmin.Image = @"\img\" + webAdmin.Id + ".png";
+                    webAdmin.Image = bannerImage;
                 }
 
-                // Update the database with new webAdmin
+                _db.Admin.Add(webAdmin);
                 await _db.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
+
+            return View(webAdmin);
         }
 
         /**
@@ -137,60 +109,53 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
          */ 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Admin webAdmin, int ID)
+        public async Task<IActionResult> Edit(Admin webAdmin)
         {
-            if (!ModelState.IsValid)
+            if (webAdmin.Id == 0)
             {
-                return View();
-            }
-            else
-            {
-                _db.Admin.Add(webAdmin);
-                await _db.SaveChangesAsync();
-
-                string webRootPath = _hostingEnvironment.WebRootPath;
-                var files = HttpContext.Request.Form.Files;
-                var saveInfo = await _db.Admin.FirstAsync();
-
-                if (files.Count > 0)
-                {
-                    // Upload a new selected Background Image 
-                    var uploads = Path.Combine(webRootPath, "img");
-                    var newExtension = Path.GetExtension(files[0].FileName);
-
-                    // Remove older Path where the Image was stored
-                    var imagePath = Path.Combine(webRootPath, webAdmin.Image.TrimStart('\\'));
-
-                    // Check if Background image exists
-                    if (System.IO.File.Exists(imagePath))
-                    {
-                        // Remove the Image from Server
-                        System.IO.File.Delete(imagePath);
-                    }
-
-                    // Replace Background with new Image
-                    using (var fileStream = new FileStream(Path.Combine(uploads,
-                        webAdmin.Id + newExtension), FileMode.Create))
-                    {
-                        files[0].CopyTo(fileStream);
-                    }
-
-                    // Save path of new Background Image
-                    saveInfo.Image = @"\img\" + webAdmin.Id + newExtension;
-                }
+                return NotFound();
+               
             }
 
             // If Admin has changed other fields
-            var singleAdmin = await _db.Admin.FindAsync(ID);
+            var singleAdmin = await _db.Admin.Where(
+                a => a.Id == webAdmin.Id).FirstOrDefaultAsync();
 
-            // Update property fields in the Database
-            singleAdmin.Username = singleAdmin.Username;
-            singleAdmin.Password = singleAdmin.Password;
-            singleAdmin.EmailAddress = singleAdmin.EmailAddress;
-            singleAdmin.Description = singleAdmin.Description;
+            if (ModelState.IsValid)
+            {
+                // Store images that webAdmin has uploaded
+                var pictures = HttpContext.Request.Form.Files;
 
-            await _db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                if (pictures.Count > 0)
+                {
+                    byte[] bannerImage = null;
+
+                    using (var fileStream = pictures[0].OpenReadStream())
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            fileStream.CopyTo(memoryStream);
+                            bannerImage = memoryStream.ToArray(); 
+                        }
+                    }
+
+                    webAdmin.Image = bannerImage;
+                }
+
+                // Update property fields in the Database
+                singleAdmin.Username = singleAdmin.Username;
+                singleAdmin.Password = singleAdmin.Password;
+                singleAdmin.EmailAddress = singleAdmin.EmailAddress;
+                singleAdmin.Description = singleAdmin.Description;
+
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(webAdmin);    
         }
+
+
+
     }
 }

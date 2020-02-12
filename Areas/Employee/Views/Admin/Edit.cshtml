@@ -16,7 +16,11 @@
 				<div class="content-body">
 					<div class="row">
 						<div class="col-md-9">
-
+							@{
+								var base64 = Convert.ToBase64String(Model.Image);
+								var picture = string.Format("data:image/png;base64,{0}", base64);
+							}
+							
 							<form method="post" asp-action="Edit">
 								<div class="background-white">
 									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -70,7 +74,7 @@
 										</div>
 										<div class="col-8">
 											<div class="controls">
-												<img src="@Model.Image" width="100%" class="img-fluid" />
+												<img src="@picture" width="100%" class="img-fluid" />
 											</div>
 										</div>
 									</div>
