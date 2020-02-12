@@ -13,12 +13,15 @@ namespace CruiseCMSDemo.Models
         public int Id { get; set; }
 
         [Display(Name = "First Name")]
+        [StringLength(20, MinimumLength = 3)]
         [Required]
         public string FirstName { get; set; }
 
         [Display(Name = "Last Name")]
+        [StringLength(30, MinimumLength = 5)]
         [Required]
         public string LastName { get; set; }
+        
         [Required]
         public string Country { get; set; }
 
@@ -29,15 +32,19 @@ namespace CruiseCMSDemo.Models
         public virtual Itinerary Itinerary { get; set; }
 
         [Display(Name = "Street Address")]
+        [StringLength(60, MinimumLength = 3)]
         [Required]
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
 
         [Display(Name = "Zip Code")]
+        [RegularExpression(@"^\d{5}(?:[-\s]\d{4})?$")]
         public int ZipCode { get; set; }
 
         [Display(Name = "Contact Number")]
+        [RegularExpression(@"^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$")]
+        [StringLength(12)]
         [Required]
         public string Phone { get; set; }
 
@@ -47,5 +54,5 @@ namespace CruiseCMSDemo.Models
 
         [Display(Name = "Are you a Resident?")]
         public bool isLocal { get; set; }
-    }
+    }   
 }
