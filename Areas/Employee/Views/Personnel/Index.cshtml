@@ -26,16 +26,17 @@
 										<thead>
 											<tr>
 												<th>
-													@Html.DisplayNameFor(p => p.Name)
+													@Html.DisplayNameFor(p => p.LastName)
+												</th>
+												<th>
+													@Html.DisplayNameFor(p => p.FirstName)
 												</th>
 												<th>
 													@Html.DisplayNameFor(p => p.Fleet)
 												</th>
+
 												<th>
 													@Html.DisplayNameFor(p => p.StartDate)
-												</th>
-												<th>
-													@Html.DisplayNameFor(p => p.EndDate)
 												</th>
 												<th>
 													@Html.DisplayNameFor(p => p.Duties)
@@ -57,16 +58,16 @@
 											{
 											<tr>
 												<td>
-													@Html.DisplayFor(value => item.Name)
+													@Html.DisplayFor(value => item.LastName)
+												</td>
+												<td>
+													@Html.DisplayFor(value => item.FirstName)
 												</td>
 												<td>
 													@Html.DisplayFor(value => item.Fleet)
 												</td>
 												<td>
 													@Html.DisplayFor(value => item.StartDate)
-												</td>
-												<td>
-													@Html.DisplayFor(value => item.EndDate)
 												</td>
 												<td>
 													@Html.DisplayFor(value => item.Duties)
