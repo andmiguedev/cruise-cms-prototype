@@ -12,23 +12,27 @@ namespace CruiseCMSDemo.Models
         [Key]
         public int Id { get; set; }
         
-        [Required]
         [Display(Name = "Administrator Name")]
+        [StringLength(40, MinimumLength = 15)]
+        [Required]
         public string FullName { get; set; }
 
-        [Required]
         [Display(Name = "Email Address")]
+        [Required]
         public string EmailAddress { get; set; }
         
+        [StringLength(15, MinimumLength = 7)]
         [Required]
         public string Username { get; set; }
         
+        [StringLength(22)]
         [Required]
         public string Password { get; set; }
    
         [Display(Name = "Banner Image")]
+        [Required]
         public byte[] Image { get; set; }
-
+        
         [Display(Name = "Banner Slogan")]
         public string Description { get; set; }
     }

@@ -155,7 +155,43 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
             return View(webAdmin);    
         }
 
+         /**
+         * Display General Information of each Website
+         * Administrator to be reviewed before removal
+         */ 
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? ID)
+        {
+            var findAdmin = await _db.Admin.SingleOrDefaultAsync(
+                a => a.Id == ID);
 
+            if (ID == null && findAdmin == null)
+            {
+                return NotFound();
+            }
+
+            return View(findAdmin);
+        }
+
+         /**
+         * Manager is able to remove an Administrator. 
+         * In the future, He or she will be disabled
+         * from having access to the Dashboard.
+         * 
+         * Note: Manager has not been implemented yet
+         */ 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int ID)
+        {
+            var removeAdmin = await _db.Admin.SingleOrDefaultAsync(
+                a => a.Id == ID);
+
+            _db.Admin.Remove(removeAdmin);
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
