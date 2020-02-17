@@ -7,28 +7,52 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CruiseCMSDemo.Models;
 using System.IO;
+using CruiseCMSDemo.Models.ViewModels;
+using CruiseCMSDemo.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CruiseCMSDemo.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _db;
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            LandingPageViewModel bannerContent = new LandingPageViewModel()
+            {
+                Itinerary = await _db.Itinerary.ToListAsync(),
+                Admin = await _db.Admin.ToListAsync()
+            };
+
+            return View(bannerContent);
         }
+
+
+
+
+
+
+
+
 
         public IActionResult Privacy()
         {
             return View();
         }
+
+
+        //private readonly ILogger<HomeController> _logger;
+
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

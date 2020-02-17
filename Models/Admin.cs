@@ -30,7 +30,6 @@ namespace CruiseCMSDemo.Models
         public string Password { get; set; }
    
         [Display(Name = "Banner Image")]
-        [Required]
         public byte[] Image { get; set; }
         
         [Display(Name = "Banner Slogan")]

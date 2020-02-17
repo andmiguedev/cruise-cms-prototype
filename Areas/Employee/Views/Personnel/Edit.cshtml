@@ -8,17 +8,16 @@
 
 <section id="main-content">
 	<section class="wrapper main-wrapper row">
-		<partial name="_HeaderPageTitle" />
-
+	
 		<div class="col-12">
 			<section class="box">
-				<partial name="_HeaderTableInfo" />
+				<partial name="_HeaderEmployeeInfo" />
 
 				<div class="content-body">
 					<div class="row">
 						<div class="col-10">
 
-							<form asp-action="Edit">
+							<form method="post" asp-action="Edit">
 								<div class="background-white">
 									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 

@@ -16,6 +16,8 @@
     <Compile Remove="Data\Migrations\20200209154343_ConnectPersonnelWithAdminTable.Designer.cs" />
     <Compile Remove="Data\Migrations\20200212231149_ConvertImageToFileSTreamForAdmin.cs" />
     <Compile Remove="Data\Migrations\20200212231149_ConvertImageToFileSTreamForAdmin.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200213213223_FixNullableImageInAdminTable.cs" />
+    <Compile Remove="Data\Migrations\20200213213223_FixNullableImageInAdminTable.Designer.cs" />
   </ItemGroup>
 
 

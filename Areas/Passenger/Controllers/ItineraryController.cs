@@ -12,16 +12,26 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
     [Area("Passenger")]
     public class ItineraryController : Controller
     {
+        /**
+         * Use dependency injection to temporarily store
+         * DefaultConnection string in appsettings.json
+         */ 
         private readonly ApplicationDbContext _db;
 
+        /* Constructor that globally assigns a variable
+         * that can be used by all the other methods */
         public ItineraryController(ApplicationDbContext db)
         {
             _db = db;
         }
 
         /**
-         * Render a list of Cruise itineraries to be seen  
-         * by any authorized User who register as Employee
+         * Get all the objects stored using DbContext 
+         * for Itinerary and convert it to async List.
+         * 
+         * Note: async/await is used because we are 
+         * dealing with more than one object at the 
+         * same time.
          */  
         public async Task<IActionResult> Index()
         {
@@ -29,9 +39,9 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
         }
 
         /**
-         * Render a left aligned form with Itinerary info
-         * distributed in labels and blank input tags to
-         * be fill by General Manager who has Admin rights
+         * Make a HTTP GET request to retrieve the 
+         * properties that belong to an Itinerary,
+         * then pass it to the Create View page
          */ 
         [HttpGet]
         public IActionResult Create()
@@ -40,8 +50,19 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
         }
 
         /**
-         * Create a new itinerary by typing all required
-         * fields. After Manager is redirected to Index 
+         * Make a HTTP POST request to create new
+         * Itinerary objects to the database. 
+         * 
+         * As the parameter, pass the instance of 
+         * the Itinerary Model that will allow us
+         * to store new values for all the props.
+         * 
+         * Using the Add method we can use our db
+         * variable to create an Itinerary object,
+         * then save and store the changes in Db.
+         * 
+         * Finally, redirect User to the Index page
+         * where all the Itineraries are displayed
          */ 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -58,9 +79,16 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
             return View(itinerary);
         }
 
-        /**
-         * All the Itinerary information is displayed inside
-         * the input tags to be reviewed before proceeding
+         /**
+         * Make a HTTP GET request to fetch all the 
+         * information for that particular Itinerary.
+         * 
+         * Using the Find method we can grab all the
+         * properties that are stored by passing the
+         * primary key of each table.
+         * 
+         * Check if Itinerary ID nor the variable we
+         * created does not exist before we render it 
          */ 
         [HttpGet]
         public async Task<IActionResult> Edit(int? ID)
@@ -76,10 +104,13 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
         }
 
         /**
-         * Manager is able to modify Itinerary information 
-         * in some circumstances. Important notice below:
+         * Make a HTTP POST request to edit an existing 
+         * Itinerary object in the database. Pass the 
+         * same parameter as the Create function.
          * 
-         * Bug: Changing ALL property fields is required
+         * For this case, use Update method to edit all
+         * the properties that belong to each Itinerary.
+         * Then save and store all the changes in the Db
          */ 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -88,7 +119,6 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
             if (ModelState.IsValid)
             {
                 _db.Update(itinerary);
-
                 await _db.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
@@ -98,8 +128,9 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
         }
 
         /**
-         * Important itinerary information is displayed 
-         * as a reminder that this action cannot be undo 
+         * Make a HTTP Get request to render some or 
+         * all the Itinerary information in read only
+         * mode. So that User can check before delete
          */ 
         [HttpGet]
         public async Task<IActionResult> Delete(int? ID)
@@ -115,10 +146,12 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
         }
 
         /**
-         * Manager is able to remove an itinerary in rare
-         * circumstances. For right now disabled fields 
-         * are displayed. In the future a friendly modal
-         * will alert the User to take action or exit.
+         * Make a HTTP POST request to remove a record
+         * from the Itinerary table. 
+         * 
+         * Using the Remove method we can delete that
+         * object by finding its corresponsing ID, then
+         * save and store the changes in the database.
          */ 
         [HttpPost]
         [ValidateAntiForgeryToken]

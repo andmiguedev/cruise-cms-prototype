@@ -1,22 +1,49 @@
 ﻿
-@model CruiseCMSDemo.Models.Admin
+@model CruiseCMSDemo.Models.ViewModels.LandingPageViewModel
 
 @{
 	ViewData["Title"] = "Home Page";
 }
 
-<section class="banner_part">
-	<div class="container">
-		<div class="row align-items-center justify-content-center">
-			<div class="col-lg-10">
-				<div class="banner_text text-center">
-					<div class="banner_text_iner">
-						<h1> Saintmartine</h1>
-						<p>Let’s start your journey with us, your dream will come true</p>
-						<a href="#" class="btn_1">Discover Now</a>
+	<section class="banner_part">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-lg-12">
+					<div class="banner_text text-center">
+						<div class="banner_text_iner">
+					
+							@if (Model.Itinerary.ToList().Count > 0)
+							{
+								@foreach (var place in Model.Itinerary)
+								{
+									<partial name="_DynamicBannerHeading" model="@Model.Itinerary.Where(
+										place => place.Destination.Equals(place.Destination))" />
+								}
+							}
+
+							@if (Model.Admin.ToList().Count > 0)
+							{
+
+								@*@foreach (var background in Model.Admin)
+								{
+									var base64 = Convert.ToBase64String(Model.Admin.ToList()[0].Image);
+									var picture = string.Format("data:image/png;base64,{0}", base64);
+
+									<img src="@picture" height="600px" width="1920px" class="banner-img" />
+								}*@
+
+								@foreach (var slogan in Model.Admin)
+								{
+									<partial name="_DynamicBannerSlogan" model="@Model.Admin.Where(
+										slogan => slogan.Description.Equals(slogan.Description))" />
+								}
+							}
+							<a asp-action="Index" asp-controller="Admin" asp-area="Employee" 
+							   class="btn_1">Change Me</a>
+
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
