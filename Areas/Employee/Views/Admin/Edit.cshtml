@@ -15,13 +15,15 @@
 				<div class="content-body">
 					<div class="row">
 						<div class="col-md-9">
-							@{
-								var base64 = Convert.ToBase64String(Model.Image);
-								var picture = string.Format("data:image/png;base64,{0}", base64);
-							}
 							
-							<form method="post" asp-action="Edit">
+							<form asp-action="Edit" enctype="multipart/form-data">
 								<div class="background-white">
+
+									@{
+										var base64 = Convert.ToBase64String(Model.Image);
+										var picture = string.Format("data:image/png;base64,{0}", base64);
+									}
+
 									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 									<div class="form-group row">
 										<div class="col-4">
@@ -74,7 +76,7 @@
 										<div class="col-8">
 											<div class="controls">
 												<img src="@picture" width="100%" class="img-fluid py-2" />
-												<input type="file" id="banner" name="pictures" multiple class="form-control-file" />
+												<input type="file" id="banner" name="pictures" class="form-control-file" multiple />
 											</div>
 										</div>
 									</div>

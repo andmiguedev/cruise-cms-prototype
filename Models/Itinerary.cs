@@ -16,7 +16,6 @@ namespace CruiseCMSDemo.Models
         [Required]
         public string Origin { get; set; }
         
-        
         [Display(Name = "Sail To")]
         [StringLength(50, MinimumLength = 5)]
         [Required]
@@ -26,16 +25,12 @@ namespace CruiseCMSDemo.Models
         [Required]
         public string StartTime { get; set; }
         
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Date of Departure")]
         [DataType(DataType.Date)]
-        [Required]
         public DateTime DepartureDate { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Date of Arrival")]
         [DataType(DataType.Date)]
-        [Required]
         public DateTime ArrivalDate { get; set; }
         
         [Display(Name = "Cruise returns")]

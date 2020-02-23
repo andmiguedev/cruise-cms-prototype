@@ -1,4 +1,5 @@
 ﻿using CruiseCMSDemo.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace CruiseCMSDemo.Models.ViewModels
     public class PassengerViewModel
     {
         public IEnumerable<Itinerary> DestinationList { get; set; }
+        
         public Profile Profile { get; set; }
         public IEnumerable<Profile> ProfileNames { get; set; }
         public Preference Preference { get; set; }

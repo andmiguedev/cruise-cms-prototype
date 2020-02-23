@@ -100,133 +100,135 @@ ul {
 }
 
 /*************** TOP BANNER ****************/
-.sub_menu {
+.top-banner {
    background-color: #eaefff;
    padding: 14px 0px;
 }
 
-.sub_menu .sub_menu_right_content a {
+.top-banner .inline-places a {
    color: #0c3e72;
    margin: 15px;
 }
 
-.sub_menu .sub_menu_right_content i {
+.top-banner .inline-places i {
    color: #fe5c24;
    margin-right: 13px;
 }
 
-.sub_menu .sub_menu_right_content span {
+.top-banner .inline-places span {
    color: #fe5c24;
    margin-right: 20px;
 }
 
 @media (max-width: 575px) {
-   .sub_menu .sub_menu_right_content {
+   .top-banner .inline-places {
       text-align: center;
    }
 
-   .sub_menu .sub_menu_right_content a {
+   .top-banner .inline-places a {
       margin: 3px;
    }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-   .sub_menu .sub_menu_right_content {
+   .top-banner .inline-places {
       text-align: center;
    }
 }
 
-.sub_menu .sub_menu_social_icon {
+.top-banner .inline-social {
    float: right;
    text-align: right;
 }
 
-.sub_menu .sub_menu_social_icon span {
+.top-banner .inline-social span {
    margin-left: 15px;
    color: #0c3e72;
 }
 
-.sub_menu .sub_menu_social_icon span i {
+.top-banner .inline-social span i {
    color: #fe5c24;
    margin-right: 8px;
 }
 
-.sub_menu .sub_menu_social_icon a {
+.top-banner .inline-social a {
    color: #0c3e72;
    margin-right: 20px;
 }
 
-.sub_menu .sub_menu_social_icon a:hover {
+.top-banner .inline-social a:hover {
    color: #fe5c24;
 }
 
 @media (max-width: 575px) {
-   .sub_menu .sub_menu_social_icon {
+   .top-banner .inline-social {
       text-align: center;
       float: none;
       margin-top: 15px;
    }
 
-   .sub_menu .sub_menu_social_icon a {
+   .top-banner .inline-social a {
       margin-right: 10px;
    }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-   .sub_menu .sub_menu_social_icon {
+   .top-banner .inline-social {
       text-align: center;
       float: none;
       margin-top: 15px;
    }
 }
 
+
 /************* MAIN NAVIGATION *************/
-.main_menu .navbar {
+.main-menu .navbar {
    padding: 0px;
 }
 
-.main_menu .navbar-brand {
+.main-menu .navbar-brand {
    padding-top: 0rem;
 }
 
 @media (max-width: 575px) {
-   .main_menu .navbar-brand img {
+   .main-menu .navbar-brand img {
       max-width: 150px;
    }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-   .main_menu .navbar-brand img {
+   .main-menu .navbar-brand img {
       max-width: 200px;
    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-   .main_menu .navbar-brand img {
+   .main-menu .navbar-brand img {
       max-width: 200px;
    }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-   .main_menu .navbar-brand img {
+   .main-menu .navbar-brand img {
       max-width: 200px;
    }
 }
 
+
 /************* NAVIGATION BAR *************/
-.main_menu .main_menu-item {
+.main-menu .main-menu-item {
    text-align: left !important;
 }
 
-.main_menu .main_menu-item .nav-item {
+.main-menu .main-menu-item .nav-item {
    padding: 10px 15px !important;
 }
 
-.main_menu .main_menu-item .nav-item a {
+.main-menu .main-menu-item .nav-item a {
    padding: 0 !important;
 }
 
-.main_menu .main_menu-item ul li .nav-link {
+.main-menu .main-menu-item ul li .nav-link {
    color: #0c3e72;
    font-size: 16px;
    padding: 38px 22px;
@@ -234,18 +236,19 @@ ul {
    text-transform: capitalize;
 }
 
-.main_menu .main_menu-item ul li .nav-link:hover {
+.main-menu .main-menu-item ul li .nav-link:hover {
    color: #fe5c24;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-   .main_menu .main_menu-item ul li .nav-link {
+   .main-menu .main-menu-item ul li .nav-link {
       padding: 35px 16px;
    }
 }
 
 
-.banner_part {
+/************* HERO BANNER *************/
+.hero-banner {
    height: 600px;
    position: relative;
    overflow: hidden;
@@ -257,9 +260,7 @@ ul {
 }
 
 @media (max-width: 575px) {
-
-   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part {
+   .hero-banner {
       height: 650px;
       background-color: #f0eed4;
    }
@@ -267,8 +268,7 @@ ul {
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
-   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part {
+   .hero-banner {
       height: 650px;
       background-color: #f0eed4;
    }
@@ -276,8 +276,7 @@ ul {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
-   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part {
+   .hero-banner {
       height: 700px;
       background-color: #f0eed4;
    }
@@ -285,30 +284,26 @@ ul {
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
 
-   /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part {
+   .hero-banner {
       background-size: cover;
       height: 650px;
    }
 }
 
-/* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text {
+.hero-banner .banner-slogan {
    display: table;
    width: 100%;
    height: 580px;
 }
 
-/* line 32, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text .banner_text_iner {
+.hero-banner .banner-slogan .inner-slogan {
    display: table-cell;
    vertical-align: middle;
 }
 
 @media (max-width: 575px) {
 
-   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text {
+   .hero-banner .banner-slogan {
       text-align: center;
       padding-top: 0px;
       height: 650px;
@@ -316,9 +311,7 @@ ul {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-
-   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text {
+   .hero-banner .banner-slogan {
       text-align: center;
       padding-top: 0px;
       height: 650px;
@@ -326,9 +319,7 @@ ul {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-
-   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text {
+   .hero-banner .banner-slogan {
       text-align: center;
       padding-top: 0px;
       height: 700px;
@@ -336,22 +327,18 @@ ul {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-
-   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text {
+   .hero-banner .banner-slogan {
       height: 650px;
    }
 }
 
-/* line 55, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text p {
+.hero-banner .banner-slogan p {
    font-size: 24px;
    color: #fff;
    margin-bottom: 50px;
 }
 
-/* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text h1 {
+.hero-banner .banner-slogan h1 {
    font-size: 120px;
    line-height: 1;
    text-transform: capitalize;
@@ -361,9 +348,7 @@ ul {
 }
 
 @media (max-width: 575px) {
-
-   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text h1 {
+   .hero-banner .banner-slogan h1 {
       font-size: 30px;
       margin-bottom: 15px;
       line-height: 1.3;
@@ -372,8 +357,7 @@ ul {
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
-   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text h1 {
+   .hero-banner .banner-slogan h1 {
       font-size: 40px;
       margin-bottom: 15px;
       line-height: 1.3;
@@ -382,8 +366,7 @@ ul {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 
-   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text h1 {
+   .hero-banner .banner-slogan h1 {
       font-size: 40px;
       margin-bottom: 15px;
       line-height: 1.3;
@@ -391,22 +374,18 @@ ul {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-
-   /* line 59, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text h1 {
+   .hero-banner .banner-slogan h1 {
       font-size: 40px;
       margin-bottom: 15px;
       line-height: 1.4;
    }
 }
 
-/* line 86, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text h1 span {
+.hero-banner .banner-slogan h1 span {
    color: #fe5c24;
 }
 
-/* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text h3 {
+.hero-banner .banner-slogan h3 {
    font-size: 48px;
    font-weight: 300;
    color: #fff;
@@ -414,29 +393,25 @@ ul {
 
 @media (max-width: 575px) {
 
-   /* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text h3 {
+   .hero-banner .banner-slogan h3 {
       font-size: 28px;
    }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 
-   /* line 91, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-   .banner_part .banner_text h3 {
+   .hero-banner .banner-slogan h3 {
       font-size: 28px;
    }
 }
 
-/* line 106, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text .btn_1 {
+.hero-banner .banner-slogan .big-btn {
    margin-top: 60px;
    background-color: #f1f1f1;
    padding: 23px 79px;
 }
 
-/* line 110, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-.banner_part .banner_text .btn_1:hover {
+.hero-banner .banner-slogan .big-btn:hover {
    color: #fff;
    background-color: #fe5c24;
 }

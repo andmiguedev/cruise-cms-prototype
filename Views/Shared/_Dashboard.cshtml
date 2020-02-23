@@ -1,5 +1,5 @@
 ﻿In<!DOCTYPE html>
-<html class=" ">
+<html>
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta charset="utf-8" />
@@ -41,23 +41,19 @@
 
 	</div>
 	<!-- END TOPBAR -->
+
 	<!-- START CONTAINER -->
 	<div class="page-container row-fluid container-fluid">
 
 		<!-- SIDEBAR - START -->
-
 		<div class="page-sidebar fixedscroll">
 
 			<!-- MAIN MENU - START -->
 			<div class="page-sidebar-wrapper" id="main-menu-wrapper">
-
-				<!-- USER INFO - START -->
-				<!-- USER INFO - END -->
-
 				<ul class='wraplist'>
 					<li class='menusection'>Customer</li>
 					<li class="open">
-						<a href="javascript:;">
+						<a href="#">
 							<i class="fa fa-globe"></i>
 							<span class="title">Passenger</span>
 							<span class="arrow open"></span>
@@ -82,7 +78,7 @@
 					</li>
 					<li class='menusection'>Company</li>
 					<li class="open">
-						<a href="javascript:;">
+						<a href="#">
 							<i class="fa fa-user-md"></i>
 							<span class="title">Employees</span>
 							<span class="arrow open"></span>
@@ -127,25 +123,16 @@
 		</div>
 
 	</div>
-	<!-- END CONTAINER -->
-	<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-	<!-- CORE JS FRAMEWORK - START -->
 	@*<script src="~/lib/jquery/dist/popper.min.js"></script>*@
 	<script src="~/lib/jquery-easing/dist/jquery.easing.min.js"></script>
-
 	<script src="~/plugins/perfect/perfect-scrollbar.min.js"></script>
 
-	<!-- CORE JS FRAMEWORK - END -->
-	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
-	<script src="~/plugins/icheck/icheck.min.js"></script>
-	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 	<!-- CORE TEMPLATE JS - START -->
 	<script src="~/js/scripts.js" asp-append-version="true"></script>
 	@RenderSection("Scripts", required: false)
-
 	<!-- END CORE TEMPLATE JS - END -->
 </body>
 </html>

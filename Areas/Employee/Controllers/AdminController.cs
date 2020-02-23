@@ -64,8 +64,11 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
                 {
                     byte[] bannerImage = null;
 
+                    // Read the picture that Admin selects
                     using (var fileStream = pictures[0].OpenReadStream())
                     {
+                        // Convert picture into stream of bytes and 
+                        // stored into bannerImage 
                         using (var memoryStream = new MemoryStream())
                         {
                             fileStream.CopyTo(memoryStream);
@@ -73,6 +76,8 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
                         }
                     }
 
+                    // Assign byte picture into Image
+                    // property
                     webAdmin.Image = bannerImage;
                 }
 
@@ -109,17 +114,11 @@ namespace CruiseCMSDemo.Areas.Employee.Controllers
          */ 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Admin webAdmin)
+        public async Task<IActionResult> Edit(int Id, Admin webAdmin)
         {
-            if (webAdmin.Id == 0)
-            {
-                return NotFound();
-               
-            }
 
             // If Admin has changed other fields
-            var singleAdmin = await _db.Admin.Where(
-                a => a.Id == webAdmin.Id).FirstOrDefaultAsync();
+            var singleAdmin = await _db.Admin.FindAsync(Id);
 
             if (ModelState.IsValid)
             {

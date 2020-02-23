@@ -38,6 +38,7 @@ namespace CruiseCMSDemo.Areas.Customer.Controllers
             return View(await _db.Itinerary.ToListAsync());
         }
 
+
         /**
          * Make a HTTP GET request to retrieve the 
          * properties that belong to an Itinerary,

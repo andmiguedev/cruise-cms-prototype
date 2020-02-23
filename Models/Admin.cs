@@ -13,7 +13,6 @@ namespace CruiseCMSDemo.Models
         public int Id { get; set; }
         
         [Display(Name = "Administrator Name")]
-        [StringLength(40, MinimumLength = 15)]
         [Required]
         public string FullName { get; set; }
 
@@ -25,7 +24,6 @@ namespace CruiseCMSDemo.Models
         [Required]
         public string Username { get; set; }
         
-        [StringLength(22)]
         [Required]
         public string Password { get; set; }
    

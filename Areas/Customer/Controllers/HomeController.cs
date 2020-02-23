@@ -27,18 +27,11 @@ namespace CruiseCMSDemo.Controllers
             LandingPageViewModel bannerContent = new LandingPageViewModel()
             {
                 Itinerary = await _db.Itinerary.ToListAsync(),
-                Admin = await _db.Admin.ToListAsync()
+                Admin = await _db.Admin.ToListAsync(),
             };
 
             return View(bannerContent);
         }
-
-
-
-
-
-
-
 
 
         public IActionResult Privacy()

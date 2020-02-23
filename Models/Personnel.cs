@@ -41,13 +41,11 @@ namespace CruiseCMSDemo.Models
         [StringLength(20)]
         public string Fleet { get; set; }
         
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Start Date")]
         [DataType(DataType.Date)]
         [Required]
         public DateTime StartDate { get; set; }
         
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "End Date")]
         [DataType(DataType.Date)]
         [Required]

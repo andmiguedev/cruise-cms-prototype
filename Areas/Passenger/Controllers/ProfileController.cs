@@ -123,10 +123,10 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int Id, PassengerViewModel passenger)
         {
+            var singleProfile = await _db.Profile.FindAsync(Id);
+
             if (ModelState.IsValid)
             {
-                var singleProfile = await _db.Profile.FindAsync(Id);
-
                 singleProfile.Address = passenger.Profile.Address;
                 singleProfile.City = passenger.Profile.City;
                 singleProfile.State = passenger.Profile.State;
@@ -142,7 +142,7 @@ namespace CruiseCMSDemo.Areas.Passenger.Controllers
             PassengerViewModel updateProfile = new PassengerViewModel()
             {
                 DestinationList = await _db.Itinerary.ToListAsync(),
-                Profile = passenger.Profile,
+                Profile = passenger.Profile
             };
 
             return View(updateProfile);
